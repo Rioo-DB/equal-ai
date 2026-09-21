@@ -1,0 +1,34 @@
+.section {
+  position: relative;
+  z-index: 0;
+  height: calc(960 * var(--u));
+  margin-top: calc(-7 * var(--u));
+  padding: calc(44 * var(--u)) 0 0 calc(444 * var(--u));
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.bg {
+  object-fit: cover;
+  z-index: 0;
+}
+
+.phone {
+  position: relative;
+  z-index: 1;
+  width: calc(578 * var(--u));
+  height: auto;
+}
+
+@media (max-width: 1023px) {
+  .section {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin-top: 0;
+    padding: 48px 16px;
+  }
+  .phone {
+    width: min(80%, 360px);
+  }
+}

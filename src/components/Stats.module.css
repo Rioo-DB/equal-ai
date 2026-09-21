@@ -1,0 +1,112 @@
+.section {
+  height: calc(1623 * var(--u));
+  padding-top: calc(102 * var(--u));
+  box-sizing: border-box;
+  background: var(--color-stats-bg);
+}
+
+/*
+ * The three columns are not evenly spaced in the design (centres at
+ * x = 145, 720, 1233; dividers at 410 and 1023), so this one row places its
+ * children by percentage of the section width instead of with grid tracks.
+ */
+.row {
+  position: relative;
+  height: calc(130 * var(--u));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  position: absolute;
+  top: calc(4 * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+}
+.stat[data-col="0"] {
+  left: calc(145 / 1440 * 100%);
+}
+.stat[data-col="1"] {
+  left: calc(720 / 1440 * 100%);
+}
+.stat[data-col="2"] {
+  left: calc(1233 / 1440 * 100%);
+}
+
+.value {
+  /* Figma 93.22% line height is relative to Manrope's natural 1.37; the text box is 69px tall. */
+  height: calc(69 * var(--u));
+  font-weight: 600;
+  font-size: clamp(36px, calc(64 * var(--u)), 64px);
+  line-height: 1.277;
+  color: #fff;
+}
+
+.label {
+  margin-top: calc(16 * var(--u));
+  font-weight: 400;
+  font-size: clamp(14px, calc(20 * var(--u)), 20px);
+  line-height: 1.277;
+  color: #fff;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  height: calc(130 * var(--u));
+  transform: translateX(-50%);
+}
+.divider[data-col="0"] {
+  left: calc(410 / 1440 * 100%);
+}
+.divider[data-col="1"] {
+  left: calc(1023 / 1440 * 100%);
+}
+.dividerImg {
+  width: calc(2 * var(--u));
+  height: calc(130 * var(--u));
+}
+
+.map {
+  width: calc(1001 * var(--u));
+  height: auto;
+  margin: calc(136 * var(--u)) 0 0 calc(229 * var(--u));
+}
+
+@media (max-width: 1023px) {
+  .section {
+    height: auto;
+    padding: 64px 16px 80px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px 56px;
+    height: auto;
+  }
+  .stat {
+    position: static;
+    transform: none;
+  }
+  .divider {
+    display: none;
+  }
+  .value {
+    height: auto;
+    font-size: 44px;
+  }
+  .label {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+  .map {
+    width: min(100%, 560px);
+    margin: 56px auto 0;
+  }
+}

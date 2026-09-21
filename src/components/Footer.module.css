@@ -1,0 +1,180 @@
+.footer {
+  background: var(--color-bg);
+}
+
+/* Column x positions from the design: lead 98, PRODUCT 600, COMPANY 776, SUPPORT 952, SOCIAL 1160 */
+.top {
+  display: grid;
+  grid-template-columns:
+    calc(502 * var(--u)) calc(176 * var(--u)) calc(176 * var(--u)) calc(208 * var(--u))
+    1fr;
+  height: calc(307 * var(--u));
+  padding: calc(86 * var(--u)) 0 0 calc(98 * var(--u));
+  box-sizing: border-box;
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tagline {
+  width: calc(467 * var(--u));
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(32px, calc(48 * var(--u)), 48px);
+  line-height: 1;
+  color: var(--color-muted);
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(28 * var(--u));
+  width: calc(199 * var(--u));
+  height: calc(52 * var(--u));
+  margin-top: calc(28 * var(--u));
+  padding-left: calc(26 * var(--u));
+  box-sizing: border-box;
+  border: 1px solid var(--color-btn-border);
+  border-radius: 200px;
+  background: transparent;
+  font-weight: 600;
+  font-size: clamp(13px, calc(16 * var(--u)), 16px);
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.ctaLabel {
+  /* Figma measures the label box at 99px; fixing it keeps the arrow at x=251 across font renderers. */
+  width: calc(99 * var(--u));
+}
+
+.arrow {
+  width: calc(22 * var(--u));
+  height: calc(14 * var(--u));
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: calc(12 * var(--u));
+}
+
+.heading {
+  margin: 0 0 calc(10 * var(--u));
+  font-weight: 500;
+  font-size: clamp(12px, calc(15 * var(--u)), 15px);
+  line-height: calc(16 * var(--u));
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+  font-size: clamp(12px, calc(15 * var(--u)), 15px);
+  line-height: 1.85;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: calc(22 * var(--u));
+  margin: calc(12 * var(--u)) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.social a {
+  display: block;
+}
+.social img {
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+}
+
+.divider {
+  width: calc(1299 * var(--u));
+  height: calc(1 * var(--u));
+  margin: 0 auto;
+}
+
+/*
+ * The Figma export code describes a bottom-half crop (height 194.93%, top -94.93%),
+ * but the Figma render and the design export both show the full image, so the
+ * full image is used. It is 5756x1460 == the 1440x368 slot.
+ */
+.wordmark {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 368;
+  margin-top: calc(12 * var(--u));
+  overflow: hidden;
+}
+.wordmarkImg {
+  object-fit: cover;
+}
+
+@media (max-width: 1023px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 24px;
+    height: auto;
+    padding: 64px 16px 48px;
+  }
+  .lead {
+    grid-column: 1 / -1;
+  }
+  .tagline {
+    width: 100%;
+    font-size: 36px;
+  }
+  .cta {
+    gap: 24px;
+    width: auto;
+    height: 52px;
+    margin-top: 24px;
+    padding: 0 26px;
+    font-size: 16px;
+  }
+  .ctaLabel {
+    width: auto;
+  }
+  .arrow {
+    width: 22px;
+    height: 14px;
+  }
+  .col {
+    padding-top: 0;
+  }
+  .heading {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .links {
+    font-size: 15px;
+  }
+  .social {
+    gap: 22px;
+    margin-top: 12px;
+  }
+  .divider {
+    width: calc(100% - 32px);
+    height: 1px;
+  }
+  .wordmark {
+    margin-top: 12px;
+  }
+}

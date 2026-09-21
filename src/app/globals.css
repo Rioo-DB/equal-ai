@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* ---- Design tokens (Figma: equal ai website, node 2105:41) ---- */
+@theme {
+  --color-bg: #000000;
+  --color-accent: #20a277;
+  --color-cta: #00b140;
+  --color-btn-border: #1a8360;
+  --color-muted: rgba(255, 255, 255, 0.45);
+  --color-nav-grey: #606060;
+  --color-stats-bg: #0b0e0f;
+}
+
+/*
+ * Layout scale.
+ * The design is 1440px wide. `--u` is one design pixel: exactly 1px at >=1440,
+ * and it shrinks proportionally below that (the wrapper is a size container,
+ * so 100cqw == min(viewport, 1440px)). Below 1024px the components switch to
+ * their own stacked layouts and stop relying on --u.
+ */
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  container-type: inline-size;
+}
+.frame {
+  --u: calc(100cqw / 1440);
+}
+@media (max-width: 1023px) {
+  .frame {
+    --u: 1px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: #fff;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+}
+
+a,
+button,
+summary {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 150ms ease;
+}
+a:hover,
+button:hover,
+summary:hover {
+  opacity: 0.8;
+}

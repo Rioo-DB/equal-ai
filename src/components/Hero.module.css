@@ -1,0 +1,62 @@
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(940 * var(--u));
+  overflow: hidden;
+}
+
+.bg {
+  object-fit: cover;
+  z-index: 0;
+}
+
+.h1 {
+  position: relative;
+  z-index: 1;
+  width: calc(801 * var(--u));
+  margin: calc(168 * var(--u)) 0 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(56px, calc(128 * var(--u)), 128px);
+  line-height: 1;
+  color: #fff;
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.scroll {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(319 * var(--u));
+  font-weight: 200;
+  font-size: clamp(16px, calc(24 * var(--u)), 24px);
+  /* Figma 74.29% is relative to Manrope's natural line height (1.37): 0.7429 * 1.37 */
+  line-height: 1.018;
+  color: var(--color-accent);
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    height: auto;
+    min-height: 620px;
+    padding-bottom: 48px;
+  }
+  .h1 {
+    width: min(100%, 560px);
+    margin-top: 120px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-size: 56px;
+  }
+  .scroll {
+    margin-top: auto;
+    padding-top: 120px;
+    font-size: 18px;
+    line-height: 1;
+  }
+}

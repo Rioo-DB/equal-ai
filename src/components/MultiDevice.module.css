@@ -1,0 +1,26 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: calc(838 * var(--u));
+  margin-bottom: calc(32 * var(--u));
+  padding-top: calc(49 * var(--u));
+  box-sizing: border-box;
+  background: var(--color-bg);
+}
+
+.image {
+  width: calc(788 * var(--u));
+  height: auto;
+}
+
+@media (max-width: 1023px) {
+  .section {
+    height: auto;
+    margin-bottom: 0;
+    padding: 0 16px 64px;
+  }
+  .image {
+    width: min(100%, 520px);
+  }
+}

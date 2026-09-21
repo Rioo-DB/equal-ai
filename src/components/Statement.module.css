@@ -1,0 +1,39 @@
+.section {
+  display: flex;
+  justify-content: center;
+  height: calc(838 * var(--u));
+  padding-top: calc(292 * var(--u));
+  box-sizing: border-box;
+  background: var(--color-bg);
+}
+
+.text {
+  width: calc(922 * var(--u));
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(36px, calc(64 * var(--u)), 64px);
+  /* Figma 93.22% is relative to Manrope's natural line height (1.37): 0.9322 * 1.37 */
+  line-height: 1.277;
+  color: var(--color-muted);
+}
+
+.white {
+  color: #fff;
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+@media (max-width: 1023px) {
+  .section {
+    height: auto;
+    padding: 96px 16px;
+  }
+  .text {
+    width: 100%;
+    font-size: 36px;
+    line-height: 1.05;
+  }
+}
