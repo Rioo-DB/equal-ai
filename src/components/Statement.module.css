@@ -1,10 +1,25 @@
+/*
+ * Statement. The block pins while its runway scrolls past; SpotlightLines
+ * lights each line in turn (grey -> white, last word -> green) so the section
+ * holds until all three have been read, then releases and the page scrolls on.
+ */
+
 .section {
+  background: var(--color-bg);
+}
+
+/* One viewport of hold per line, plus the pinned viewport itself. */
+.runway {
+  height: 400vh;
+}
+
+.pin {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: center;
-  height: calc(838 * var(--u));
-  padding-top: calc(292 * var(--u));
-  box-sizing: border-box;
-  background: var(--color-bg);
+  align-items: center;
+  height: 100vh;
 }
 
 .text {
@@ -18,22 +33,40 @@
   color: var(--color-muted);
 }
 
+/* --lit (0..1) is driven per line by SpotlightLines from the scroll position. */
+.line {
+  --lit: 0;
+  display: block;
+}
+
 .white {
-  color: #fff;
+  color: color-mix(in oklab, var(--color-muted), #fff calc(var(--lit) * 100%));
 }
 
 .accent {
-  color: var(--color-accent);
+  color: color-mix(in oklab, var(--color-muted), var(--color-accent) calc(var(--lit) * 100%));
 }
 
 @media (max-width: 1023px) {
-  .section {
-    height: auto;
-    padding: 96px 16px;
+  .runway {
+    height: 300vh;
   }
   .text {
     width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
     font-size: 36px;
-    line-height: 1.05;
+    line-height: 1.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .runway {
+    height: auto;
+  }
+  .pin {
+    position: static;
+    height: auto;
+    padding: 96px 0;
   }
 }

@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import PhoneShowcase from "@/components/PhoneShowcase";
 import Statement from "@/components/Statement";
 import MultiDevice from "@/components/MultiDevice";
 import Testimonials from "@/components/Testimonials";
@@ -12,7 +11,6 @@ export default function Home() {
       <div className="frame">
         <main>
           <Hero />
-          <PhoneShowcase />
           <Statement />
           <MultiDevice />
           <Testimonials />

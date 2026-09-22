@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { testimonials } from "@/lib/content";
+import TestimonialCarousel from "./TestimonialCarousel";
 import s from "./Testimonials.module.css";
 
 export default function Testimonials() {
@@ -10,14 +10,11 @@ export default function Testimonials() {
         <br />
         <span className={s.accent}>{testimonials.heading.line2}</span>
       </h2>
-      <Image
-        src={testimonials.image.src}
-        alt={testimonials.image.alt}
-        width={testimonials.image.width}
-        height={testimonials.image.height}
-        sizes="(max-width: 1440px) 93vw, 1335px"
-        quality={90}
-        className={s.image}
+      <TestimonialCarousel
+        cards={testimonials.cards}
+        initial={testimonials.initial}
+        width={testimonials.card.width}
+        height={testimonials.card.height}
       />
     </section>
   );

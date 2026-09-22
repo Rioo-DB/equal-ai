@@ -121,6 +121,10 @@
   aspect-ratio: 1440 / 368;
   margin-top: calc(12 * var(--u));
   overflow: hidden;
+  /* The PNG's glow runs solid to its bottom edge; dissolve it into black so
+     the page doesn't end on a hard bright strip. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, rgba(0, 0, 0, 0.55) 82%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, #000 62%, rgba(0, 0, 0, 0.55) 82%, rgba(0, 0, 0, 0) 100%);
 }
 .wordmarkImg {
   object-fit: cover;

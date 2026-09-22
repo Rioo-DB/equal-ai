@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     // Next 16 requires every quality used by <Image quality> to be allowlisted.
     // 90 keeps the green glow gradients from banding.
-    qualities: [90],
+    qualities: [90, 100],
   },
 
   // --- Pure static export (S3, Netlify, cPanel, ...) ---------------------

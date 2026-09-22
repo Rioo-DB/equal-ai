@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { stats, statsSection } from "@/lib/content";
+import MapPings from "./MapPings";
 import s from "./Stats.module.css";
 
 export default function Stats() {
@@ -19,15 +20,19 @@ export default function Stats() {
         ))}
       </ul>
 
-      <Image
-        src={statsSection.map.src}
-        alt={statsSection.map.alt}
-        width={statsSection.map.width}
-        height={statsSection.map.height}
-        sizes="(max-width: 1023px) 92vw, (max-width: 1440px) 70vw, 1001px"
-        quality={90}
-        className={s.map}
-      />
+      <div className={s.map}>
+        <Image
+          src={statsSection.map.src}
+          alt={statsSection.map.alt}
+          width={statsSection.map.width}
+          height={statsSection.map.height}
+          sizes="(max-width: 1023px) 100vw, 1400px"
+          quality={100}
+          className={s.mapImg}
+        />
+        {/* Live-activity pings: random city dots light up and fade out. */}
+        <MapPings points={statsSection.map.pings} className={s.ping} activeClassName={s.pingActive} />
+      </div>
     </section>
   );
 }

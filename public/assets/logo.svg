@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 21" width="71" height="21" role="img" aria-label="Equal">
+  <!--
+    Vector rebuild of the Equal logotype. The supplied PNG is only 71x21px, so it
+    blurs on retina screens; these are the same geometric letterforms (measured
+    from that PNG) drawn as paths, so they stay crisp at any size.
+    Grid: x-height 5 -> 14.5, stroke 1.45, bowl radius 4.03.
+  -->
+  <g fill="#00b140">
+    <!-- six dots, two rows of three -->
+    <circle cx="5" cy="5" r="3.5" />
+    <circle cx="11.9" cy="5" r="3.5" />
+    <circle cx="18" cy="5" r="3.5" />
+    <circle cx="5" cy="15" r="3.5" />
+    <circle cx="11.9" cy="15" r="3.5" />
+    <circle cx="18" cy="15" r="3.5" />
+  </g>
+  <g fill="none" stroke="#00b140" stroke-width="1.45" stroke-linecap="round">
+    <!-- e: bar across the bowl, then the bowl opening at the lower right -->
+    <path d="M28.6 9.75 H36.6" />
+    <path d="M36.6 9.75 A4.03 4.03 0 1 0 35.9 12.6" />
+    <!-- q: bowl + descender -->
+    <circle cx="42.2" cy="9.75" r="4.03" />
+    <path d="M46.23 8 V17.2" />
+    <!-- u: left stem, bottom arc, right stem to the baseline -->
+    <path d="M47.6 5.7 V10.5 A4.03 4.03 0 0 0 55.66 10.5 V5.7" />
+    <path d="M55.66 10.5 V14.5" />
+    <!-- a: bowl + right stem -->
+    <circle cx="60.55" cy="9.75" r="4.03" />
+    <path d="M64.58 7 V14.5" />
+    <!-- l: ascender stem -->
+    <path d="M68.6 3.5 V14.5" />
+  </g>
+</svg>

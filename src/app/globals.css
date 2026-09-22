@@ -8,7 +8,8 @@
   --color-btn-border: #1a8360;
   --color-muted: rgba(255, 255, 255, 0.45);
   --color-nav-grey: #606060;
-  --color-stats-bg: #0b0e0f;
+  /* Figma has #0b0e0f here; flattened to pure black so the section matches its neighbours. */
+  --color-stats-bg: #000000;
 }
 
 /*

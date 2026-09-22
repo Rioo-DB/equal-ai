@@ -8,15 +8,28 @@
   overflow: hidden;
 }
 
-.bg {
-  object-fit: cover;
+/* Oversized so the parallax drift never reveals the layer's edges. */
+.bgLayer {
+  position: absolute;
+  inset: -30% 0;
   z-index: 0;
+  will-change: transform;
 }
 
-.phone {
+.bg {
+  object-fit: cover;
+}
+
+.phoneWrap {
   position: relative;
   z-index: 1;
   width: calc(578 * var(--u));
+  will-change: transform, opacity;
+}
+
+.phone {
+  display: block;
+  width: 100%;
   height: auto;
 }
 
@@ -28,7 +41,7 @@
     margin-top: 0;
     padding: 48px 16px;
   }
-  .phone {
+  .phoneWrap {
     width: min(80%, 360px);
   }
 }

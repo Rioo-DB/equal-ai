@@ -1,26 +1,56 @@
+/* The runway is taller than the viewport; the stage stays pinned while the
+   extra height scrolls past and drives the phones' rotation. */
 .section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: calc(838 * var(--u));
   margin-bottom: calc(32 * var(--u));
-  padding-top: calc(49 * var(--u));
-  box-sizing: border-box;
   background: var(--color-bg);
 }
 
-.image {
+.runway {
+  /* How much scrolling one full rotation takes. */
+  --runway: 220vh;
+  height: calc(var(--runway) + 100vh);
+}
+
+.pin {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.canvas {
+  display: block;
   width: calc(788 * var(--u));
-  height: auto;
+  max-height: 90vh;
+  aspect-ratio: 1;
+  object-fit: contain;
 }
 
 @media (max-width: 1023px) {
   .section {
-    height: auto;
     margin-bottom: 0;
-    padding: 0 16px 64px;
   }
-  .image {
+  .runway {
+    --runway: 150vh;
+  }
+  .canvas {
     width: min(100%, 520px);
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    padding: calc(49 * var(--u)) 0;
+  }
+  .runway {
+    height: auto;
+  }
+  .pin {
+    position: static;
+    height: auto;
   }
 }

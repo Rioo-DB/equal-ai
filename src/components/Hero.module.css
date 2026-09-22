@@ -1,62 +1,199 @@
+/*
+ * Hero. Pinned for two viewports of scrolling; HeroPin exposes the overall
+ * progress as `--p` (0..1), split here into two phases:
+ *   --a  headline glides left and shrinks, horizon sinks, phone fades up onto it
+ *   --b  headline fades, phone moves to the centre and grows, an ambient glow
+ *        blooms around it, then glow and horizon fade to black for the next section
+ */
+
 .hero {
   position: relative;
+  z-index: 1;
+}
+
+.runway {
+  height: 300vh;
+}
+
+.pin {
+  --p: 0;
+  --a: clamp(0, var(--p) * 2, 1);
+  --b: clamp(0, var(--p) * 2 - 1, 1);
+  /* ease-out: the headline clears the centre early, before the phone arrives */
+  --m: calc(var(--a) * (2 - var(--a)));
+  /* smoothstep for the second phase */
+  --n: calc(var(--b) * var(--b) * (3 - 2 * var(--b)));
+  --mint: #6ff0b4;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ---- Planet horizon ------------------------------------------------------ */
+
+/* Planet limb image: fills the stage at rest (its arc sits just below centre,
+   as in the design), then slides down as the phone lands on it and again as the
+   phone centres, so the light source moves out of frame rather than vanishing. */
+.horizon {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform: translate3d(0, calc(24vh + var(--m) * 10vh + var(--n) * 30vh), 0);
+  opacity: calc(1 - clamp(0, (var(--b) - 0.7) / 0.3, 1));
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.horizonImg {
+  object-fit: cover;
+  object-position: 50% 38%;
+}
+
+/* Fades in as the phone centres, and back out before the next section. */
+.ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: calc(clamp(0, var(--b) / 0.45, 1) - clamp(0, (var(--b) - 0.7) / 0.3, 1));
+  pointer-events: none;
+}
+.ambientImg {
+  object-fit: cover;
+}
+
+/* ---- Copy ---------------------------------------------------------------- */
+
+/* Centred on the stage; at rest it is lifted so the headline sits where the
+   design puts it, and it ends vertically centred, 24% of the width to the
+   left, at 60% scale. */
+.copy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(940 * var(--u));
-  overflow: hidden;
-}
-
-.bg {
-  object-fit: cover;
-  z-index: 0;
+  transform: translate(calc(-50% - var(--m) * 346 * var(--u) - var(--n) * 60 * var(--u)), calc(-50% + (1 - var(--m)) * (330 * var(--u) - 50vh)))
+    scale(calc(1 - var(--m) * 0.4));
+  opacity: calc(1 - clamp(0, var(--b) / 0.4, 1));
+  will-change: transform, opacity;
 }
 
 .h1 {
-  position: relative;
-  z-index: 1;
-  width: calc(801 * var(--u));
-  margin: calc(168 * var(--u)) 0 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+  margin: 0;
   font-weight: 500;
   font-size: clamp(56px, calc(128 * var(--u)), 128px);
   line-height: 1;
   color: #fff;
 }
 
-.accent {
-  color: var(--color-accent);
+.line {
+  display: block;
+  width: fit-content;
+  white-space: nowrap;
+}
+/* Line 1 is nudged right by half the width difference so the pair reads as
+   centred at rest, and settles to left-aligned as the block moves left. */
+.line[data-line="1"] {
+  transform: translateX(calc(var(--l1shift, 0px) * (1 - var(--m))));
 }
 
-.scroll {
-  position: relative;
-  z-index: 1;
-  margin-top: calc(319 * var(--u));
-  font-weight: 200;
-  font-size: clamp(16px, calc(24 * var(--u)), 24px);
-  /* Figma 74.29% is relative to Manrope's natural line height (1.37): 0.7429 * 1.37 */
-  line-height: 1.018;
-  color: var(--color-accent);
+.accent {
+  color: var(--mint);
 }
+
+.sub {
+  max-width: calc(440 * var(--u));
+  margin: calc(28 * var(--u)) 0 0;
+  text-align: center;
+  font-size: clamp(13px, calc(16 * var(--u)), 16px);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.5);
+  opacity: calc(1 - clamp(0, var(--a) / 0.3, 1));
+}
+
+/* ---- Phone --------------------------------------------------------------- */
+
+.phone {
+  --raw: clamp(0, (var(--a) - 0.35) / 0.5, 1);
+  /* smoothstep, so it eases in and settles softly */
+  --ph: calc(var(--raw) * var(--raw) * (3 - 2 * var(--raw)));
+  position: absolute;
+  left: 62%;
+  bottom: 4vh;
+  z-index: 1;
+  height: min(68vh, calc(600 * var(--u)));
+  /* Fades out again at the very end so the hero hands over on clean black. */
+  opacity: calc(var(--ph) * (1 - clamp(0, (var(--b) - 0.78) / 0.22, 1)));
+  /* phase A: rise in at 62%; phase B: glide to the centre, lift, and grow */
+  transform: translate(calc(-50% - var(--n) * 173 * var(--u)), calc((1 - var(--ph)) * 80px - var(--n) * 2vh))
+    scale(calc(0.94 + 0.06 * var(--ph) + 0.12 * var(--n)));
+  will-change: transform, opacity;
+}
+
+.phoneImg {
+  width: auto;
+  height: 100%;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
+}
+
+/* ---- Small screens: no pin, everything stacked and visible ---------------- */
 
 @media (max-width: 1023px) {
-  .hero {
+  .runway {
+    height: auto;
+  }
+  .pin {
+    --m: 0;
+    --n: 0;
+    --b: 0;
+    position: static;
     height: auto;
     min-height: 620px;
     padding-bottom: 48px;
   }
-  .h1 {
-    width: min(100%, 560px);
-    margin-top: 120px;
+  .horizon {
+    transform: none;
+  }
+  .copy {
+    position: static;
+    width: 100%;
+    margin-top: 96px;
     padding: 0 16px;
     box-sizing: border-box;
+    transform: none;
+  }
+  .h1 {
+    align-items: center;
     font-size: 56px;
   }
-  .scroll {
-    margin-top: auto;
-    padding-top: 120px;
-    font-size: 18px;
-    line-height: 1;
+  .line[data-line="1"] {
+    transform: none;
+  }
+  .sub {
+    opacity: 1;
+  }
+  .phone {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: min(70%, 320px);
+    height: auto;
+    margin-top: 48px;
+    opacity: 1;
+    transform: none;
+  }
+  .phoneImg {
+    width: 100%;
+    height: auto;
   }
 }
