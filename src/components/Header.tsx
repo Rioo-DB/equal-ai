@@ -7,14 +7,16 @@ export default function Header() {
   return (
     <header className={s.header}>
       <div className={s.pill}>
-        <Image
-          src={header.logo.src}
-          alt={header.logo.alt}
-          width={header.logo.width}
-          height={header.logo.height}
-          quality={90}
-          className={s.logo}
-        />
+        <Link href="/" aria-label="Equal AI home">
+          <Image
+            src={header.logo.src}
+            alt={header.logo.alt}
+            width={header.logo.width}
+            height={header.logo.height}
+            quality={90}
+            className={s.logo}
+          />
+        </Link>
 
         <nav aria-label="Primary" className={s.nav}>
           {header.links.map((link) => (
@@ -22,9 +24,6 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href={header.cta.href} className={s.cta}>
-            {header.cta.label}
-          </Link>
         </nav>
 
         {/* <1024px: same links behind a JS-free disclosure menu */}
@@ -40,9 +39,6 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link href={header.cta.href} className={s.cta}>
-              {header.cta.label}
-            </Link>
           </nav>
         </details>
       </div>

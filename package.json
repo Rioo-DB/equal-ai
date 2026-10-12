@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "extract-frames": "node scripts/extract-frames.mjs"
+    "extract-frames": "node scripts/extract-frames.mjs",
+    "extract-demo-frames": "node scripts/extract-demo-frames.mjs"
   },
   "dependencies": {
     "next": "16.3.5",

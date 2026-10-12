@@ -1,0 +1,41 @@
+{
+  "title": "Resources",
+  "lede": "Everything about Equal AI in one place — stories from the team, what we shipped, answers to your questions, how we handle your data, and how to reach us.",
+  "cards": [
+    {
+      "title": "Blogs",
+      "description": "How we think about calls, spam and the Indian phone.",
+      "href": "/blog",
+      "image": "/resources/res_blogs.png",
+      "imageAlt": "A 3D illustration of a newspaper"
+    },
+    {
+      "title": "Updates",
+      "description": "Every feature we've shipped, newest first.",
+      "href": "/updates",
+      "image": "/resources/res_updates.png",
+      "imageAlt": "A 3D illustration of a rocket"
+    },
+    {
+      "title": "FAQs",
+      "description": "Answers on call handling, recordings, settings and your account.",
+      "href": "/faqs",
+      "image": "/resources/faq_conversation.png",
+      "imageAlt": "A 3D illustration of two speech bubbles"
+    },
+    {
+      "title": "Privacy Policy",
+      "description": "What we collect, why we need it and what you can ask us to do with it.",
+      "href": "/privacy-policy",
+      "image": "/resources/Frame-2085663243.png",
+      "imageAlt": "A 3D illustration of a padlock"
+    },
+    {
+      "title": "Contact Us",
+      "description": "Talk to a human — by phone, by email, or straight from the app.",
+      "href": "/contact",
+      "image": "/resources/faq_call.png",
+      "imageAlt": "A 3D illustration of a telephone handset"
+    }
+  ]
+}

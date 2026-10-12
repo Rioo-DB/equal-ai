@@ -1,0 +1,38 @@
+{
+  "title": "Contact Us",
+  "intro": "Something not working, or an idea for what we should build next? We read everything that comes in.",
+  "cards": [
+    {
+      "label": "Call us",
+      "value": "+91 80199 06600",
+      "note": "Monday to Saturday, 10:00 AM – 7:00 PM IST.",
+      "href": "tel:+918019906600",
+      "kind": "phone"
+    },
+    {
+      "label": "Email us",
+      "value": "hey@equal.in",
+      "note": "For support, feedback, partnerships and press.",
+      "href": "mailto:hey@equal.in",
+      "kind": "email"
+    }
+  ],
+  "social": [
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/company/myequalai"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/myequal.ai/"
+    },
+    {
+      "label": "YouTube",
+      "href": "https://www.youtube.com/@myequalai"
+    }
+  ],
+  "appNote": {
+    "title": "Already using the app?",
+    "body": "The fastest way to reach us is the Help Center inside Equal AI — it comes through with your account details attached, so we can look into it right away."
+  }
+}

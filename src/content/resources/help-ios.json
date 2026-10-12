@@ -1,0 +1,704 @@
+{
+  "title": "iOS FAQs",
+  "lede": "Everything about using Equal AI on iPhone — setting up, activating call forwarding, working with your assistant, and managing your subscription.",
+  "categories": [
+    {
+      "slug": "how-equal-ai-works-ios",
+      "title": "How Equal AI works",
+      "image": "/resources/Frame-2085663241.png",
+      "items": [
+        {
+          "id": "is-equal-ai-a-caller-id-app",
+          "question": "",
+          "answer": "<p>Equal AI isn't just a caller ID app — it's an AI assistant. It answers calls on your behalf, engages in conversations with callers, understands the purpose of the call, and provides clear, detailed summaries. Once you have the summary, it's up to you to decide whether to take the call, call back, or ignore it.</p>"
+        },
+        {
+          "id": "does-equal-ai-block-calls",
+          "question": "How does Equal AI work?",
+          "answer": "<p>When a call comes in, if you want your assistant to handle it, just decline the call (or let it ring). Your AI Assistant automatically picks it up and has a conversation with the caller to understand who is calling and why, then notifies you with the purpose for call and caller details — without you taking the call. You can take over and speak directly if you want, or let the assistant handle it entirely.</p>"
+        },
+        {
+          "id": "joining-call",
+          "question": "Does Equal AI block calls or talk to callers?",
+          "answer": "<p>Equal AI doesn't block calls — it answers and responds to every caller on your behalf when you decline. Using the call's context, it intelligently routes calls that matter to you while managing the rest so you stay focused. You can see the live conversation and take over the call at any time while the assistant is handling it. This gives you full control, allowing you to monitor and join the conversation instantly.</p>"
+        },
+        {
+          "id": "will-phone-ring-for-unknown-calls",
+          "question": "Why do I need to decline calls/let it ring through for the assistant to handle them?",
+          "answer": "<p>Equal AI uses call forwarding. Calls are forwarded to your AI Assistant in three scenarios: when you decline the call (busy condition), when you let it ring through without answering (unanswered condition), or when you're unreachable (e.g., on a flight or phone switched off). In all three cases the call is forwarded to your assistant, which handles it for you.</p>"
+        },
+        {
+          "id": "see-who-is-calling-before-ai-answers",
+          "question": "What if I accidentally accept a call instead of declining?",
+          "answer": "<p>If you accept the call, you're connected directly to the caller and the AI Assistant won't step in. You can continue the call yourself or hang up — if you hang up and the caller calls again, you can decline that call to let the assistant handle it.</p>"
+        },
+        {
+          "id": "only-for-unknown-numbers",
+          "question": "Will callers know they are talking to an AI?",
+          "answer": "<p>The AI Assistant introduces itself in a natural and professional manner at the beginning of the call. Most callers clearly understand that they are speaking with an assistant handling the call on your behalf.</p>"
+        },
+        {
+          "id": "what-is-green-card",
+          "question": "Which calls will my AI Assistant answer?",
+          "answer": "<p>Equal AI can handle calls from both unknown numbers and saved contacts. You can choose which calls the assistant handles from Settings -&gt; Call Handling: All calls (every incoming call), All calls except... (all calls except favourite contacts you select), or Only unknown numbers (only numbers not in your contacts).</p>"
+        },
+        {
+          "id": "when-does-user-see-green-card",
+          "question": "Can the AI Assistant make calls for me?",
+          "answer": "<p>The AI Assistant is designed to handle incoming calls on your behalf. Currently it focuses on screening and managing incoming calls only.</p>"
+        },
+        {
+          "id": "where-are-call-details",
+          "question": "What happens if call forwarding fails when I decline a call?",
+          "answer": "<p>Occasionally, due to network issues, a declined call may fail to forward to your assistant. In such cases the call is dropped and the assistant can't pick it up. These calls appear as missed calls in your phone's call log, so you can see who called and call them back.</p>"
+        },
+        {
+          "id": "can-i-monitor-call",
+          "question": "Will I be notified when the AI handles a call?",
+          "answer": "<p>Yes, you'll receive a notification and live activity card when a call is being handled by assistant. You can tap the notification/live activity card to monitor the call live.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "setup-and-activation",
+      "title": "Setup & Activation",
+      "image": "/resources/Frame-2085664139.png",
+      "items": [
+        {
+          "id": "how-to-set-equal-ai-on-phone",
+          "question": "How do I set up Equal AI on my iPhone?",
+          "answer": "<p>Download Equal AI from the App Store -&gt; enter mobile number and Send OTP -&gt; Verify -&gt; enter name and gender -&gt; grant permissions -&gt; experience a demo call -&gt; choose plan and start with 1-week free trial -&gt; turn Live Voicemail OFF and set Silence Unknown Callers to Never -&gt; activate call forwarding by dialing the codes -&gt; you are all set</p>"
+        },
+        {
+          "id": "call-forwarding-failure",
+          "question": "I'm not receiving the OTP — what do I do?",
+          "answer": "<p>Ensure you have a stable network connection, wait a few minutes and request the OTP again. If it persists, try restarting your device or check if SMS services are active on your number.</p>"
+        },
+        {
+          "id": "not-getting-otp",
+          "question": "How do I activate call forwarding for my assistant?",
+          "answer": "<p>During setup the app shows the forwarding codes — dial each one (when busy, when unanswered, when unreachable) from your dialer. If you skipped it during onboarding/failed to setup properly, login again to setup properly.</p>"
+        },
+        {
+          "id": "entered-wrong-name-or-gender",
+          "question": "Why do I have to dial three call forwarding codes?",
+          "answer": "<p>Equal AI uses three types of forwarding so no call is missed: when busy (you're on another call), when unanswered (you decline or don't pick up), and when unreachable (phone off or no network). Dialing all three ensures every incoming call you don't take is handled by your assistant.</p>"
+        },
+        {
+          "id": "why-disable-call-forwarding",
+          "question": "Why turn off Live Voicemail and Silence Unknown Callers?",
+          "answer": "<p>These iPhone features can interfere with Equal AI. Live Voicemail can pick up calls before the assistant gets a chance; Silence Unknown Callers sends unknown numbers straight to voicemail, bypassing your assistant. Turning these off ensures your assistant can answer calls properly.</p>"
+        },
+        {
+          "id": "chose-wrong-assistant-voice",
+          "question": "How do I turn off Live Voicemail and Silence Unknown Callers?",
+          "answer": "<p>Live Voicemail: iPhone Settings -&gt; Apps -&gt; Phone -&gt; Live Voicemail -&gt; Toggle OFF. <br>Silence Unknown Callers: iPhone Settings -&gt; Apps -&gt; Phone -&gt; Silence Unknown Callers -&gt; Select Never.</p>"
+        },
+        {
+          "id": "chose-wrong-assistant-voice",
+          "question": "Can I register with one number and activate on a different number?",
+          "answer": "<p>No, the number you register with must be the same number you activate the assistant on (one which is there in your phone). You cannot set up the assistant on a different line.</p>"
+        },
+        {
+          "id": "call-forwarding-with-different-number",
+          "question": "Can I update my name or gender after signing up?",
+          "answer": "<p>Yes, Open the Home Screen of the app -&gt; Settings -&gt; Personal Details -&gt; edit your name and gender, then save.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "using-your-assistant",
+      "title": "Using Your Assistant",
+      "image": "/resources/faq_usage.png",
+      "items": [
+        {
+          "id": "assistant-voice-customization",
+          "question": "Can I change my assistant's voice after onboarding?",
+          "answer": "<p>Yes, you can change the assistant’s voice at any time. Open the Home Screen -&gt; Settings -&gt; Assistant Preferences -&gt; tap Edit next to Assistant Voice -&gt; select your preferred one -&gt; Confirm. The updated voice applies immediately for future calls.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Can I preview a voice before selecting it?",
+          "answer": "<p>Yes. On the Assistant Voice screen you can listen to each voice in Hindi, English, or any other supported language by tapping the Listen button, so you can pick the voice that feels right.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Can I change the assistant's languages later?",
+          "answer": "<p>Yes, you can change assistant language at anytime. Open the Home Screen -&gt; Settings -&gt; Assistant Preferences -&gt; tap Edit next to Assistant Languages -&gt; select up to 3 languages -&gt; choose your primary language -&gt; Confirm.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "What is the primary language?",
+          "answer": "<p>The primary language is the one your assistant uses to greet callers at the start of every call. Even though it can switch between all your selected languages, it always begins in your primary language.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "What happens if a caller speaks a language I haven't selected?",
+          "answer": "<p>If the caller speaks a language not in your selected languages, the assistant lets them know which languages it can speak. The call is still summarized so you don't miss anything.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "How many languages can my assistant speak?",
+          "answer": "<p>Up to 3 languages at a time — the primary language plus up to 2 additional. You can change this anytime from Settings.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Can I take over a call mid-conversation?",
+          "answer": "<p>Yes, you can take over an ongoing call at any time and speak to the caller directly. <br>Steps: Open the app -&gt; Tap the Ongoing Call -&gt; Tap the Takeover (call) icon at the top right of the conversation screen. The call transfers to you immediately. You stay in full control of every conversation.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Can I see what the caller and assistant are saying in real time?",
+          "answer": "<p>Yes. Tap the Ongoing Call card on the home screen to open the live conversation screen, where messages from both the caller and assistant appear in real time.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Can I monitor a call while it's being handled?",
+          "answer": "<p>Yes, you can monitor ongoing calls with real-time live transcriptions from the conversation screen. Steps: Open the Home Screen -&gt; Tap the Ongoing Call card at the top of the Conversations list. From there you can see what the caller and assistant are saying in real time, send quick replies, or take over.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Can I guide/ask something during a live call without taking it over?",
+          "answer": "<p>Yes, While the assistant is on a call you can: tap one of the quick reply chips (like 'Not Interested', 'Tell Me', 'Call me') or type a custom message in the 'What would you like to do...' field, which the assistant uses to drive the conversation. <br>Steps: Open the Home Screen -&gt; Tap the Ongoing Call card -&gt; Use the quick replies or message box.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "What is 'Talk To Your Assistant'?",
+          "answer": "<p>'Talk To Your Assistant' is a feature that lets you have a live conversation with your AI Assistant anytime — to test it, see how it handles scenarios, or clear a doubt. It can also answer your questions about how the iOS app works, your subscription, and payments.</p>"
+        },
+        {
+          "id": "how-is-equal-ai-different",
+          "question": "When should I use Meet Your Assistant?",
+          "answer": "<p>Anytime — to test your assistant's voice and language, see how it handles different conversations, get familiar before real calls, or ask the assistant questions about how the app, subscription, or payments work.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "managing-calls-and-contacts",
+      "title": "Managing Calls & Contacts",
+      "image": "/resources/faq_call.png",
+      "items": [
+        {
+          "id": "assistant-voice-customization",
+          "question": "What is the Call Handling setting?",
+          "answer": "<p>Call Handling lets you control which calls your assistant answers: All calls (every incoming call when declined), All calls except... (all calls except favourite contacts you select), or Only unknown numbers (only numbers not in your contacts).</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How do I change my Call Handling preference?",
+          "answer": "<p>Open the Home Screen -&gt; Settings -&gt; Call Handling -&gt; select your preferred option -&gt; Confirm if prompted.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "If I choose 'All calls', will it pick up saved contacts too?",
+          "answer": "<p>Yes — but only if you decline those calls. Calls from saved contacts ring on your phone first; if you decline or don't answer, the assistant picks up and handles the call.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How does 'All calls except...' work?",
+          "answer": "<p>Your assistant handles all calls — unknown numbers and saved contacts — except the favourite contacts you select. Calls from selected contacts ring on your phone as usual and won't be forwarded, even if you decline. <br> Steps: Settings -&gt; Call Handling -&gt; All calls except... -&gt; Edit -&gt; search and select contacts -&gt; Save.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Will I miss any important calls?",
+          "answer": "<p>No — every call still rings on your phone first, so you're always in control. The assistant only takes over the calls you decide not to take.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "What is a promotional call?",
+          "answer": "<p>Any call your assistant identifies as sales, marketing, advertising, or a cold call — such as loans, credit cards, real estate, or unrequested job offers. Your assistant automatically detects these and can mute them based on your settings.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "What happens when I get a promotional call?",
+          "answer": "<p>The assistant identifies it during the conversation. If Silent Mode is ON for that category, the call is muted (no connect initiated, you get a 'muted' notification afterward). If OFF, it's treated like any other call but tagged 'Promotional Call' in your Conversations list.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How do I turn on Silent Mode?",
+          "answer": "<p>Open the Home Screen -&gt; Settings -&gt; Silent Mode -&gt; Toggle ON. You can also customize which promotional categories should be muted.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Can I mute specific types of promotional calls?",
+          "answer": "<p>Yes. In Silent Mode settings you can choose which categories to mute — for example, only loans and credit cards but not job offers. Each category toggles independently.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "What if I'm actually interested in a promotional offer?",
+          "answer": "<p>Open the conversation from your Conversations list — you'll see the full summary and recording, and you can take over the call anytime. You can also call the number back to follow up.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Can I see promotional calls but not have them muted?",
+          "answer": "<p>Yes. Turn off Silent Mode (or specific categories). Promotional calls will still be tagged in your Conversations list but won't be muted automatically — the assistant handles them like any other call.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "What does muting a caller do?",
+          "answer": "<p>Muting a caller stops the assistant from connecting their calls to you. Calls from a muted caller — promotional and non-promotional — are picked up by the assistant but not connected to you. You'll still see the conversation and summary in your Conversations list.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How do I mute a caller?",
+          "answer": "<p>From the conversation screen: open the conversation -&gt; tap the 3-dot menu (top right) -&gt; Mute Caller -&gt; Confirm. (OR) From the profile screen: open the contact's profile -&gt; tap the Mute icon -&gt; Confirm.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How do I unmute a caller?",
+          "answer": "<p>Same flow as muting, but the option shows Unmute. Alternatively, manage all muted callers from Settings -&gt; Muted Contacts.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Difference between muting a caller and Silent Mode?",
+          "answer": "<p>Muting a caller applies to a specific phone number — all calls from that number won't be patched to you. Silent Mode applies to entire categories of promotional calls (loans, cards, etc.). Manual caller mute takes precedence over Silent Mode and other settings.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Will I still see calls from a muted caller?",
+          "answer": "<p>Yes. Muted callers still appear in your Conversations list with a muted icon. You can open the conversation and see the full summary and recording — the AI just won't connect the call to you.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Where can I see all my muted callers?",
+          "answer": "<p>Open the Home Screen -&gt; Settings -&gt; user preference -&gt; Muted Contacts. You'll see all callers you've manually muted and can unmute any of them directly from this screen.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "What is Assistant Snooze?",
+          "answer": "<p>Assistant Snooze temporarily turns off your AI Assistant for a set duration. It automatically turns back on once the time is up, so you don't have to remember to enable it manually.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How do I snooze my assistant?",
+          "answer": "<p>Open the Home Screen OR go to Settings -&gt; tap the AI Assistant toggle to turn it OFF -&gt; select a snooze duration -&gt; tap Snooze Assistant.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "What snooze durations are available?",
+          "answer": "<p>15 minutes, 1 hour, 6 hours, Rest of today.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Will I get a notification when the assistant turns back on?",
+          "answer": "<p>Yes. When the snooze timer ends you'll get a notification: 'Equal AI is back On to handle your unknown calls.' The assistant automatically resumes handling calls.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Can I turn the assistant back on before snooze ends?",
+          "answer": "<p>Yes. Toggle the AI Assistant back ON from the home screen anytime. The snooze schedule is cancelled and no 'back ON' notification will fire later.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "What happens to calls during snooze?",
+          "answer": "<p>When snoozed, calls ring on your phone as usual; if you don't answer they won't be forwarded to the assistant. For unknown calls you'll still see the caller's name and category on a green card with a message like 'Couldn't handle because the assistant is OFF.'Yes, you can ask customized questions to the caller by following these steps:</p>"
+        }
+      ]
+    },
+    {
+      "slug": "conversations-and-summaries",
+      "title": "Conversations & Summaries",
+      "image": "/resources/faq_conversation.png",
+      "items": [
+        {
+          "id": "assistant-voice-customization",
+          "question": "Where can I find all my call summaries?",
+          "answer": "<p>All call summaries are on the Conversations list on the home screen. Each row shows the caller's name and a one-line summary of the last call.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "What is the one-line summary?",
+          "answer": "<p>A short description of what the call was about, generated by your assistant after handling the call, so you can quickly understand why someone called without reading the full transcript.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Where can I see the full conversation?",
+          "answer": "<p>Tap any conversation in the Conversations list to open the full call screen. You'll see the complete transcript, an audio recording (with play, pause, and speed controls), and a detailed summary.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Can I listen to the call recording?",
+          "answer": "<p>Yes. Open any conversation -&gt; tap the Play button on the Call Summary card. You can also adjust playback speed (e.g., 1x, 1.5x, 2x).</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Are calls always recorded?",
+          "answer": "<p>Only the portion of the call handled by the AI Assistant is recorded. Once you take over, recording stops. Calls that ring directly to you (without going through the assistant) are not recorded.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How accurate are the summaries?",
+          "answer": "<p>The summary is generated from the actual conversation with the caller. The clearer the caller explains their reason for calling, the more accurate the summary. A small disclaimer appears at the top of every conversation: 'Your AI can make mistakes.'</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Can I rate the call experience?",
+          "answer": "<p>Yes. At the bottom of every completed conversation you'll see a 5-star rating prompt. Your rating helps improve the assistant.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Where should I check details after a call is handled?",
+          "answer": "<p>All call-related details are on the Conversations screen on the home page. <br>Steps: Open the Home Screen -&gt; Tap the conversation you want to view. There you can see the summary, call recording, and full conversation transcript for each handled call.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How do I delete one or multiple conversations?",
+          "answer": "<p>On the Conversations list, swipe left on a conversation (or long press / use the edit option) to delete a single one, or tap the edit option to enter multi-select mode, select the conversations you want, and tap the Delete icon. Confirm to permanently delete.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Can I undo a deleted conversation?",
+          "answer": "<p>No, deleted conversations cannot be recovered.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How do I delete a specific call log?",
+          "answer": "<p>Open the contact's Profile screen -&gt; find the call log under Call History -&gt; swipe left on the call log -&gt; Delete.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "What happens if I delete all call logs from a contact?",
+          "answer": "<p>If all call logs of a contact are deleted, the conversation for that contact is also automatically removed from your Conversations list.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Can I share or copy a caller's details?",
+          "answer": "<p>Yes. Long-press a conversation -&gt; Share to open the iOS share sheet. You can also tap the 3-dot menu inside a conversation to copy the caller's name or number.</p>"
+        },
+        {
+          "id": "how-is-equal-ai-different",
+          "question": "Does deleting a muted caller's conversation unmute them?",
+          "answer": "<p>No. Even if you delete the conversation, the mute preference is retained. If the caller contacts you again, they'll still be muted.Yes, you can ask customized questions to the caller by following these steps:</p>"
+        }
+      ]
+    },
+    {
+      "slug": "subscriptions-and-billing",
+      "title": "Subscription & Billing",
+      "image": "/resources/faq_billing.png",
+      "items": [
+        {
+          "id": "assistant-voice-customization",
+          "question": "Is Equal AI a paid app?",
+          "answer": "<p>Yes, Equal AI is a paid app — an active subscription is required to use the AI Assistant. However, every new user gets a 1-week trial without any charges to experience the full app before deciding whether to continue.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "How does the 1 week free trial work?",
+          "answer": "<p>When you sign up you get 1 week of trial access to all features. You'll need to add a payment method via your Apple ID (in-app purchase), but you won't be charged during the trial period.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Will I have access if I cancel during the 7-day trial?",
+          "answer": "<p>Yes — you'll have access until the 7-day trial ends. After that the subscription won't renew and you'll lose access to the assistant.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "How will I be charged?",
+          "answer": "<p>Subscriptions are purchased within the app as an in-app purchase through your Apple ID via the App Store. All payments are handled securely by Apple. Your subscription auto-renews — to avoid being charged, cancel at least 24 hours before your trial or current billing period ends.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Why does my statement show APPLE.COM/BILL and not Equal AI?",
+          "answer": "<p>Apple is the payment processor for all Apple In-App Purchase subscriptions, so any Equal AI charge appears as APPLE.COM/BILL on your statement. Check iPhone Settings -&gt; your name -&gt; Subscriptions to confirm your active Equal AI subscription.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "What payment methods are supported?",
+          "answer": "<p>On iPhone, subscriptions are paid via UPI Autopay (a recurring mandate on your UPI app) or your Apple Account balance. Netbanking can top up your Apple Account balance but cannot pay for subscriptions directly.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "I'm stuck on the payment screen — what should I do?",
+          "answer": "<p>Sometimes Apple takes a moment to confirm payment. Wait a few seconds then close and reopen the app, check your internet connection, go to the Paywall or Plan details screen and tap Restore purchases, and check iPhone Settings -&gt; your name -&gt; Subscriptions to see if your subscription is active. If you were charged but still don't have access, contact the Help Center — don't reattempt payment before checking, or you may be charged twice.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "How can I get a refund?",
+          "answer": "<p>Refunds are handled entirely by Apple — Equal AI cannot process or approve them. To request one, visit reportaproblem.apple.com and sign in with your Apple ID. If Apple approves, your premium access is removed and you receive the refund.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "How do I see my plan details?",
+          "answer": "<p>Home screen -&gt; Settings -&gt; tap your plan card -&gt; Manage plan. You can view plan status, days remaining, and renewal date. You can also see this in your Apple account.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "How do I cancel my subscription?",
+          "answer": "<p>Subscriptions are managed through Apple. <br>To cancel: iPhone Settings -&gt; tap your name -&gt; Subscriptions -&gt; Equal AI -&gt; Cancel subscription. Cancel at least 24 hours before your trial or next billing cycle to avoid being charged. You keep access until the end of the paid period.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "How do I renew an expired or cancelled plan?",
+          "answer": "<p>Tap the Renew banner on the home screen, or go to Settings -&gt; plan card -&gt; Renew. You'll be guided through payment via Apple.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "What happens when my subscription expires?",
+          "answer": "<p>The AI Assistant stops handling your calls. You'll see a banner on the home screen, and can find plan details and the renew option on the Settings page. Your past conversations and data remain accessible.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Can I restore my plan on a new device or after reinstalling?",
+          "answer": "<p>Yes. Use Restore purchases: open the app -&gt; Paywall or Plan details screen -&gt; tap Restore purchases. Apple will restore your subscription if an active purchase is linked to your Apple ID.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Can I restore even with a different phone number?",
+          "answer": "<p>Yes. Your subscription is tied to your Apple ID, not your phone number. As long as you sign in with the same Apple ID, you can restore the same purchase — even on a different phone number or device.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "I paid but my premium access isn't showing — what do I do?",
+          "answer": "<p>First try Restore purchases: open the app -&gt; Paywall or Plan details screen -&gt; tap Restore purchases. If that doesn't work, contact the Help Center with your account details.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "'Restore purchases' says no previous purchases found — what now?",
+          "answer": "<p>This usually means there's no active subscription linked to your current Apple ID. Make sure you're signed in with the same Apple ID you used to subscribe. If it continues, reach out to the Help Center.</p>"
+        },
+        {
+          "id": "how-is-equal-ai-different",
+          "question": "I think I was charged on the wrong Apple ID — what do I do?",
+          "answer": "<p>Subscriptions are tied to the Apple ID used at purchase. If you believe a charge was made on the wrong account, contact the Help Center with your details and we'll help where we can.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "data-privacy-ios",
+      "title": "Privacy & Data",
+      "image": "/resources/Frame-2085663243.png",
+      "items": [
+        {
+          "id": "are-all-calls-recorded",
+          "question": "Which calls are recorded, and why are they stored?",
+          "answer": "<p>Only the portion of each call handled by the AI Assistant is recorded; recording stops once the call is transferred to you. Direct calls that bypass the assistant aren't recorded. Recordings and transcripts are stored exclusively for your reference and to generate summaries. You can access, review, and delete them anytime. Equal AI does not share or use your recordings for any other purpose.Only the portion of each call handled by the AI Assistant is recorded. Recording stops once the call is transferred to you. Direct calls that bypass the assistant are also not recorded These recordings and transcripts are stored exclusively for your reference and to generate call summaries, helping you review conversations and stay informed about who called and why.</p>"
+        },
+        {
+          "id": "who-can-access-my-calls",
+          "question": "Who can access my call recordings and data?",
+          "answer": "<p>Only you, through your Equal AI account. We do not share, sell, or disclose your recordings or personal information to third parties, except where required by law or with your explicit consent. Data is stored securely with industry-standard encryption, and you can access, review, export, and delete it anytime.Only you can access your call recordings and data through your Equal AI account. We do not share, sell, or disclose your recordings or personal information to third parties, except where required by applicable law or with your explicit consent.</p>"
+        },
+        {
+          "id": "why-caller-id-permission",
+          "question": "Can I permanently delete call recordings and summaries?",
+          "answer": "<p>Yes. You can delete individual conversations or call logs anytime (see the Delete Conversations &amp; Call Logs section for steps). You can also delete your account.</p>"
+        },
+        {
+          "id": "why-caller-id-permission",
+          "question": "Why does Equal AI need access to my contacts?",
+          "answer": "<p>Equal AI uses your contacts to identify known callers and apply your Call Handling preferences (like 'All calls except...'). Without contact access, the assistant can't tell saved contacts from unknown numbers.</p>"
+        },
+        {
+          "id": "why-caller-id-permission",
+          "question": "Why does Equal AI need notification permission?",
+          "answer": "<p>Notifications keep you informed in real time — alerts when a call comes in, when the assistant takes a message, or when a summary is ready. Without them you may miss important call activity. You can manage notification preferences anytime in iPhone Settings.</p>"
+        },
+        {
+          "id": "why-caller-id-permission",
+          "question": "Why does Equal AI need app tracking (ATT) permission?",
+          "answer": "<p>This is requested per Apple's App Tracking Transparency policy. If you allow it, it helps us understand how users interact with the app so we can improve it. If you decline, Equal AI continues to work fully — it has no impact on core functionality.</p>"
+        },
+        {
+          "id": "permanent-deletion-call-recordings-and-summaries",
+          "question": "How do I view the Privacy Policy and Terms & Conditions?",
+          "answer": "<p>Settings -&gt; Account &amp; Data -&gt; tap Privacy Policy or Terms &amp; Conditions to open them within the app.Yes, users can permanently delete the call recordings and summaries by following these steps:</p>"
+        }
+      ]
+    },
+    {
+      "slug": "account-support-and-more",
+      "title": "Account, Support & More",
+      "image": "/resources/Frame-2085663245.png",
+      "items": [
+        {
+          "id": "equal-ai-on-two-numbers",
+          "question": "How do I log out of Equal AI?",
+          "answer": "<p>Open the Home Screen -&gt; Settings -&gt; Account &amp; Data -&gt; Logout -&gt; tap Logout in the confirmation prompt. You'll then need to remove call forwarding before logout completes.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Why must I remove call forwarding before logging out?",
+          "answer": "<p>Call forwarding is managed by your network provider, not Equal AI. If you don't remove it before logging out, your calls keep being forwarded even though the assistant can't handle them. Removing it ensures calls come straight to your phone.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "How do I remove call forwarding on iPhone?",
+          "answer": "<p>On the Remove Call Forwarding screen during logout, tap the Dial button to call the forwarding removal code. If that fails, copy and dial ##002# in your dialer to remove all call forwarding at once. After dialing, tick the confirmation checkbox and tap Logout.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "What happens to my data when I log out?",
+          "answer": "<p>Logging out doesn't delete anything. All call recordings, logs, and personal information remain intact and will be available when you log back in.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "How do I log back in after logging out?",
+          "answer": "<p>Equal AI works on Android devices running Android 10 or higher. It's compatible with all major telecom providers in India, except BSNL. iOS support is coming soon.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Difference between logging out and deleting my account?",
+          "answer": "<p>Logout retains your data and keeps your account — you can log back in anytime. Delete Account permanently deletes your data and removes your account — you can't recover it (signing up creates a new account). Want a break or switching devices? Log out. Leaving permanently? Delete your account.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "How do I delete my Equal AI account?",
+          "answer": "<p>Open the app -&gt; Settings -&gt; Account &amp; Data -&gt; Delete Account -&gt; share feedback -&gt; Proceed -&gt; tick the checkbox 'I understand that by deleting my account, all my data will be permanently deleted' -&gt; Delete Account -&gt; remove call forwarding via the Dial button (or dial ##002# manually) -&gt; tick the confirmation checkbox and tap Confirm &amp; Delete Account.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "What happens to my data after I delete my account?",
+          "answer": "<p>All personal information, call recordings, call logs, and related data are permanently deleted from our systems within 24 hours, subject to any legal or regulatory retention requirements.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Can I recover my account after deleting it?",
+          "answer": "<p>Account deletion is permanent and cannot be undone. To use Equal AI again you'll need to sign up and start fresh — none of your previous data will be linked to the new account.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Will my account be deleted immediately?",
+          "answer": "<p>Your account is marked for deletion immediately. All data is permanently purged from our systems within 24 hours.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Why remove call forwarding before deleting my account?",
+          "answer": "<p>Call forwarding is managed by your network provider, not Equal AI. If you don't remove it, calls keep being forwarded even after your account is deleted — meaning callers might still hear an old greeting. Removing it ensures calls come straight to your phone after deletion.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "What if my account deletion fails?",
+          "answer": "<p>You'll see an 'Account Deletion Failed' screen with a Try Again option. Tap Try Again to retry. If it persists, you can reach out via email — the app will pre-fill an email to support with your details.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "What happens to my active plan if I delete my account?",
+          "answer": "<p>Deleting your account does not automatically cancel an active subscription. You must cancel separately through Apple before or after deletion: iPhone Settings -&gt; your name -&gt; Subscriptions -&gt; Equal AI -&gt; Cancel subscription. If you don't, Apple will keep charging you even though your account no longer exists.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Where can I share feedback about Equal AI?",
+          "answer": "<p>Through multiple channels: caller-level feedback (5-star rating after every assistant-handled call), App Store review, or Email/Call via the Help Center in Settings.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "How do I rate a specific call?",
+          "answer": "<p>Open the conversation in your Conversations list -&gt; scroll to the bottom -&gt; tap the 5-star rating prompt: 'How would you want to rate your call?' Your rating helps improve the assistant.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Will Equal AI work if my internet is unstable?",
+          "answer": "<p>Equal AI requires active mobile data or Wi-Fi for real-time cloud processing. A stable connection ensures best performance and accurate call handling. If a proper connection isn't available, calls ring directly on your phone instead of going through the assistant.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "How much mobile data does Equal AI use?",
+          "answer": "<p>About 1-2 MB per call. For most users receiving 20-30 calls a day, this is roughly 30-60 MB daily — a light footprint that won't strain your data plan.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Why is live transcription sometimes delayed?",
+          "answer": "<p>Live transcription relies on your internet connection. If your network is slow or unstable, transcription may lag slightly. Once your connection improves, the full conversation syncs to your app.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Which devices and iOS versions are supported?",
+          "answer": "<p>Equal AI works on iPhones running iOS 16 or higher. It's compatible with all major telecom providers in India, except BSNL. (Internal note: details pending confirmation — verify before publishing.)</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Can I activate Equal AI on two phone numbers?",
+          "answer": "<p>Equal AI supports only one phone number per user for the time.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Does Equal AI work on iPad or Apple Watch?",
+          "answer": "<p>Equal AI is currently designed for iPhone only. Can expect in future.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "What kind of updates will I get on WhatsApp?",
+          "answer": "<p>Call alerts when your assistant handles calls, important account updates, and helpful guides on key features — including detailed summaries of conversations your assistant had on your behalf.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Will Equal AI message me on WhatsApp without consent?",
+          "answer": "<p>We'll only send WhatsApp messages if you opted in during sign-up. To stop them, disable WhatsApp Updates in Settings (Home screen -&gt; Settings -&gt; WhatsApp Updates).</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "How do I stop receiving WhatsApp messages?",
+          "answer": "<p>Turn off 'Get updates on WhatsApp' from WhatsApp Updates in Settings (Home screen -&gt; Settings -&gt; WhatsApp Updates).</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "How do I invite a friend to Equal AI?",
+          "answer": "<p>Tap 'Invite a Friend' at the bottom of the Settings screen. You can share the invite via WhatsApp, iMessage, or any other app on your phone.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "caller-communication",
+      "title": "Communication with Your Callers",
+      "image": "/resources/faq_caller_comms.png",
+      "items": [
+        {
+          "id": "does-equal-message-my-callers",
+          "question": "Does Equal AI message the people who call me?",
+          "answer": "<p>Yes — when your assistant handles a call and the caller tells it why they called, Equal AI sends that caller a short WhatsApp confirmation on your behalf, so they know their message reached you. It only goes to callers who actually spoke with your assistant, it is sent from Equal AI's official WhatsApp Business number (never your personal number), and it is signed on your behalf — for example '— Aman's Equal AI assistant'.</p>"
+        },
+        {
+          "id": "what-does-my-caller-receive",
+          "question": "What exactly does my caller receive?",
+          "answer": "<p>Two short confirmations, both plain updates with no offers or promotions: (1) <strong>Message taken</strong> — sent after your assistant has handled the call, confirming to the caller that their message has been passed on to you, along with the reason they gave for calling. (2) <strong>Message seen</strong> — sent once you have opened that conversation in the app, so the caller knows you have seen it. Each message identifies itself as coming from Equal AI and is signed on your behalf.</p>"
+        },
+        {
+          "id": "which-callers-get-them",
+          "question": "Which of my callers get these confirmations?",
+          "answer": "<p>Only callers who are already known to you — people saved in your contacts — and only when your assistant actually spoke with them on your behalf. Unknown and unsaved numbers are not messaged. If a call never reaches your assistant, or the caller hangs up before saying anything, nothing is sent. The feature is also rolling out gradually, so it may not be active on your account yet.</p>"
+        },
+        {
+          "id": "when-is-each-sent",
+          "question": "When is each confirmation sent?",
+          "answer": "<p>The 'message taken' confirmation goes out right after your assistant finishes the call and prepares the summary — usually within a minute or two. The 'message seen' confirmation goes out after you open that conversation in the app. Nothing is ever sent while the call is still in progress.</p>"
+        },
+        {
+          "id": "how-do-i-stop-them",
+          "question": "How do I stop Equal AI from messaging my callers?",
+          "answer": "<p>Open the <strong>Home Screen</strong> → <strong>Settings</strong> → <strong>WhatsApp Updates</strong> → turn off <strong>'Send read receipts to callers'</strong>. Your assistant keeps answering and summarising calls exactly as before — it just stops sending confirmations to your callers. You can turn it back on anytime.</p>"
+        },
+        {
+          "id": "does-it-stop-my-own-updates",
+          "question": "If I stop caller confirmations, do I stop getting my own WhatsApp updates?",
+          "answer": "<p>No. WhatsApp Updates holds two separate settings: <strong>'Get updates on WhatsApp'</strong> controls the updates Equal AI sends to you (call alerts, summaries, account updates), and <strong>'Send read receipts to callers'</strong> controls the confirmations sent to people who call you. Turning off one does not affect the other.</p>"
+        },
+        {
+          "id": "does-caller-get-recording",
+          "question": "Does the caller get my call recording, transcript or summary?",
+          "answer": "<p>No. The recording, the full transcript and the detailed summary stay in your account and are visible only to you. The caller's confirmation contains just a short note that their message reached you, plus the reason they themselves gave for calling.</p>"
+        },
+        {
+          "id": "how-does-caller-know-genuine",
+          "question": "How does my caller know the message is genuine and not spam?",
+          "answer": "<p>Every message clearly identifies itself as coming from Equal AI and is signed on behalf of the specific person the caller rang — for example '— Aman's Equal AI assistant'. Equal AI never asks callers for OTPs, money, passwords, payment details or personal information in these messages. If a caller receives a message claiming to be from Equal AI that asks for any of those, it is not from us.</p>"
+        },
+        {
+          "id": "can-callers-reply",
+          "question": "Can callers reply to the confirmation and reach me that way?",
+          "answer": "<p>The confirmation is not a chat with you — it is a one-way update sent on your behalf, and the quick-reply options only let the caller say the message was helpful or ask to stop future updates. If you want to respond, call the person back from their conversation in the app.</p>"
+        },
+        {
+          "id": "does-it-cost-me",
+          "question": "Does this cost me anything?",
+          "answer": "<p>No. Sending these confirmations is part of your Equal AI subscription — there is no extra charge to you, and no charge to the caller for receiving them.</p>"
+        },
+        {
+          "id": "snoozed-or-unhandled",
+          "question": "Are confirmations sent when my assistant is snoozed, or when a call is not handled?",
+          "answer": "<p>No. A confirmation only exists because your assistant had a conversation with the caller. If your assistant is snoozed, if call forwarding did not go through, or if the call rang directly to you, there is no assistant conversation — so no confirmation is sent.</p>"
+        }
+      ]
+    }
+  ]
+}

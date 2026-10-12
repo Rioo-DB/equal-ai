@@ -3,7 +3,7 @@
 Pixel-accurate build of the Figma frame
 [`equal ai website` → node 2105:41](https://www.figma.com/design/fItrV1s1J88U4HGfmKeWit/equal-ai-website--Copy-?node-id=2105-41).
 
-Next.js 16 (App Router, Turbopack), React 19, Tailwind CSS v4, TypeScript.
+Next.js 16 (App Router), React 19, Tailwind CSS v4, TypeScript.
 Fully static — no API routes, server actions, middleware or dynamic APIs.
 
 ## Local development
@@ -17,7 +17,7 @@ npm run dev        # http://localhost:3000
 
 ```bash
 npm run lint       # ESLint
-npm run build      # every route must show as ○ (Static)
+npm run build      # webpack build; every route must show as ○ (Static)
 npm run start      # serve the production build on :3000
 ```
 
@@ -79,3 +79,17 @@ Next.js does not optimize images in export mode, so pre-compress them first:
 If "Get Started" becomes a waitlist/contact form, add a single Route Handler at
 `src/app/api/lead/route.ts` (validated with zod, basic rate limiting). It runs as
 a serverless function on Vercel. Not built yet.
+
+## Scroll videos
+
+The two scroll-driven sequences are folders of WebP frames in `public/assets`
+(`phones-frames`, `demo-frames`), and the demo continues as
+`public/assets/demo-watch.mp4` (with sound) once the phone is tapped. They are
+built from source videos that are not in git; put them in `media/` and run
+`npm run extract-frames` / `npm run extract-demo-frames` to rebuild:
+
+| Source | Used for |
+|---|---|
+| `media/phones-features.mp4` | the feature phones (`phones-frames`) |
+| `media/product-demo.mp4` | the demo up to "Click here to watch" (`demo-frames`) |
+| `media/product-demo-v5.mp4` | `demo-watch.mp4` (command in `scripts/extract-demo-frames.mjs`) |

@@ -1,0 +1,27 @@
+{
+  "title": "Frequently Asked Questions",
+  "lede": "Pick the one that describes you — answers for people who use Equal AI, and for people who have called someone who does.",
+  "cards": [
+    {
+      "title": "Android Users",
+      "description": "Call handling, setup, customisation, your account and privacy on Android.",
+      "href": "/faqs/android",
+      "image": "/resources/faq_android.png",
+      "imageAlt": "A 3D illustration of the Android robot"
+    },
+    {
+      "title": "iOS Users",
+      "description": "Setup and activation, using your assistant, conversations and billing on iPhone.",
+      "href": "/faqs/ios",
+      "image": "/resources/faq_ios.png",
+      "imageAlt": "A 3D illustration of the Apple logo"
+    },
+    {
+      "title": "Why did Equal contact me?",
+      "description": "Everything you need to know about why we reached out.",
+      "href": "/faqs/callers",
+      "image": "/resources/faq_callers.png",
+      "imageAlt": "A 3D illustration of a telephone handset"
+    }
+  ]
+}

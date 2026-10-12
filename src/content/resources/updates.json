@@ -1,0 +1,93 @@
+{
+  "title": "Updates",
+  "lede": "Every feature we've shipped, newest first — what it does and where to find it in the app.",
+  "groups": [
+    {
+      "month": "May 2026",
+      "items": [
+        {
+          "title": "Assistant Health Check",
+          "date": "May 21st, 2026",
+          "body": "<p>Is your assistant missing calls or not forwarding correctly? Run a Health Check and Equal AI will diagnose the issue and fix it automatically. If we detect a problem in the background and can't resolve it, you'll see a banner prompting you to run the check</p><p><strong>How to Access:</strong> Go to Settings → Assistant Health Check. Or tap the banner alert if one appears.</p>",
+          "media": "/resources/assistant-healthcheck.gif"
+        },
+        {
+          "title": "Language Preferences",
+          "date": "May 15th, 2026",
+          "body": "<p>Your assistant now speaks your language — literally. Choose up to 3 languages from English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali, and Gujarati, and your Equal AI assistant will handle calls in the ones that matter most to you. No more missed context because of a language mismatch.</p><p><strong>How to Access:</strong> Go to Settings → Assistant Preferences → Language Preferences</p>",
+          "media": "/resources/language-preference.gif"
+        }
+      ]
+    },
+    {
+      "month": "April 2026",
+      "items": [
+        {
+          "title": "Mute by Category",
+          "date": "Apr 17th, 2026",
+          "body": "<p>Not all promotional calls are the same — so why mute them all? You can now mute calls by category and Equal AI will automatically silence only the ones that don't interest you. Choose from Credit Card, Loan Offer, Real Estate, Job Offer, and Others.</p><p><strong>How to Access:</strong> Go to Settings → Call Preferences → Mute by Category</p>",
+          "media": "/resources/category.gif"
+        },
+        {
+          "title": "Delete Account",
+          "date": "Apr 2nd, 2026",
+          "body": "<p>You can now permanently delete your Equal AI account directly from the app. Once deleted, your account and all associated data will be removed. This action is irreversible, so make sure you're ready before confirming.</p><p><strong>How to Access:</strong> Go to Settings → Account &amp; Data → Delete Account.</p>",
+          "media": "/resources/delete.gif"
+        },
+        {
+          "title": "Log Out",
+          "date": "Apr 2nd, 2026",
+          "body": "<p>Signing out of Equal AI is now just a tap away. Whether you're switching devices or simply stepping away, you're in control of when you're logged in.</p><p><strong>How to Access:</strong> Go to Settings → Account &amp; Data → Log Out</p>",
+          "media": "/resources/logout.gif"
+        },
+        {
+          "title": "Mute Promotional Calls — Your Way",
+          "date": "Apr 2nd, 2026",
+          "body": "<p>You now have full control over promotional calls. Turn on Global Mute and Equal AI will automatically silence all promotional calls — no action needed on your end. Prefer to mute specific callers only? You can do that too, right from the conversation page.</p><p><strong>How to Access:</strong> Go to Settings → Call Preferences. To mute a specific caller, tap the ⋮ on the conversation page of the specific caller.</p>",
+          "media": "/resources/mutegif.gif"
+        }
+      ]
+    },
+    {
+      "month": "February 2026",
+      "items": [
+        {
+          "title": "Promotional Call Identification",
+          "date": "Feb 13th, 2026",
+          "body": "<p>You told us you wanted fewer interruptions — we listened. Stop picking up calls that waste your time. Your Equal AI now identifies when a call is promotional or spam based on the conversation. No setup, no manual blocking. It just works.</p><p><strong>How to Access:</strong> Works automatically in the background — no setup needed.</p>",
+          "media": "/resources/newgiffinal1.gif"
+        },
+        {
+          "title": "Pause Your Assistant",
+          "date": "Feb 13th, 2026",
+          "body": "<p>Want to answer calls yourself? Set the time, and Equal AI will step aside. It resumes automatically when you're ready. No reminders needed.</p><p><strong>How to Access:</strong> Tap the toggle on the Home screen. Select how long you'd like to pause from the options that appear.</p>",
+          "media": "/resources/newfinalgif2.gif"
+        },
+        {
+          "title": "One-Line Summary",
+          "date": "Feb 13th, 2026",
+          "body": "<p>Every call now arrives with a one-line summary right in your notification and call log preview — so you know what it was about without opening anything. When you need the full story, tap any call conversation to read the complete summary at your own pace.</p><p><strong>How to Access:</strong> Appears automatically in your call log and notifications. Tap any entry to read the full summary.</p>",
+          "media": "/resources/newfinalgif3.gif"
+        },
+        {
+          "title": "Caller Name on Ring Screen",
+          "date": "Feb 13th, 2026",
+          "body": "<p>The identified caller's name now appears on your ring screen instead of “Equal AI Assistant”. You have the full context you need to decide.</p><p><strong>How to Access:</strong> Visible automatically on your ring screen whenever your Assistant screens a call.</p>",
+          "media": "/resources/newfinal4.png"
+        },
+        {
+          "title": "Help Center",
+          "date": "Released: Feb 2026",
+          "body": "<p>The new Help Center inside the app has tutorials, guides and answers to FAQs. Everything you need to get the most out of Equal AI is now in one place.</p><p><strong>How to Access:</strong> Go to Profile → Help Center</p>",
+          "media": "/resources/newfinalgif5.gif"
+        },
+        {
+          "title": "Invite a Friend",
+          "date": "Released: Feb 2026",
+          "body": "<p>You can now invite friends directly from your profile with a single tap. Help someone you know navigate calls – the Equal way!</p><p><strong>How to Access:</strong> Go to Profile → Invite a Friend</p>",
+          "media": "/resources/newfinal6.png"
+        }
+      ]
+    }
+  ]
+}

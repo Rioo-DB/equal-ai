@@ -1,0 +1,248 @@
+{
+  "title": "Android FAQs",
+  "lede": "Everything about using Equal AI on Android — how the assistant handles your calls, how to set it up, and how your data is looked after.",
+  "categories": [
+    {
+      "slug": "how-equal-ai-works",
+      "title": "How Equal AI works",
+      "image": "/resources/Frame-2085663241.png",
+      "items": [
+        {
+          "id": "is-equal-ai-a-caller-id-app",
+          "question": "Is Equal AI a caller ID app?",
+          "answer": "<p>Equal AI isn’t just a caller ID app - it’s an AI assistant. It answers calls on your behalf, engages in conversations with callers, understands the purpose of the call, and provides you with clear, detailed summaries of the call.</p>"
+        },
+        {
+          "id": "does-equal-ai-block-calls",
+          "question": "Does Equal AI block calls or talk to callers?",
+          "answer": "<p>Equal AI doesn't block calls - it answers and responds to every caller on your behalf. Using the call's context and your custom preferences, it intelligently routes calls that matter to you while managing the rest so you stay focused.</p>"
+        },
+        {
+          "id": "joining-call",
+          "question": "Can I join a call while the AI is talking?",
+          "answer": "<p>Yes, you can take over a call at any time while the assistant is handling it. This gives you full control, allowing you to join the conversation instantly.</p><p><strong>Steps to take over a call:</strong></p><p>Open the <strong>Home Screen</strong> → Go to the <strong>Caller Profile</strong> → Tap on <strong>“Take Over”</strong> (available at the top right of the screen).</p><p>The call will be immediately transferred to you.</p>"
+        },
+        {
+          "id": "will-phone-ring-for-unknown-calls",
+          "question": "Will my phone ring for unknown calls?",
+          "answer": "<p>AI Assistant handles unknown calls on your behalf, displays the caller's intent on green card and notifies you with the call's purpose before connecting.</p>"
+        },
+        {
+          "id": "see-who-is-calling-before-ai-answers",
+          "question": "Can I see who is calling before the AI answers?",
+          "answer": "<p>Equal AI answers unknown calls instantly on your behalf. You can monitor the conversation in real time through the callers conversation screen and take over the call at any time if needed.</p>"
+        },
+        {
+          "id": "only-for-unknown-numbers",
+          "question": "Does Equal AI work only for unknown numbers?",
+          "answer": "<p>Yes, currently Equal AI handles calls only from unknown numbers. Calls from the contacts that are saved on your device will ring on your phone as usual.</p><p>Equal AI will soon handle known calls for you too. Watch the space for updates on the same.</p>"
+        },
+        {
+          "id": "what-is-green-card",
+          "question": "What is the Green Card and why does it appear over the screen when a call comes?",
+          "answer": "<p>Equal AI displays caller details using a green card , allowing you to quickly identify who is calling and what is the purpose of the call . This helps you make an informed decision about whether they want to answer the call or let the AI Assistant handle it.</p>"
+        },
+        {
+          "id": "when-does-user-see-green-card",
+          "question": "When will I see a green card?",
+          "answer": "<p>When an unknown caller rings, a green card pops up with caller details, helping you quickly decide if you want to take the call.</p>"
+        },
+        {
+          "id": "where-are-call-details",
+          "question": "Where should I check the details after a call is handled by an AI Assistant?",
+          "answer": "<p>All call-related details can be accessed from the <strong>Caller Screen</strong>.</p><p><strong>Steps:</strong></p><p>Open the <strong>Home Screen</strong> → Go to the <strong>Caller Screen</strong>.</p><p>Here, you can view the <strong>call summary</strong>, <strong>call recording</strong>, and <strong>full conversation</strong> for each handled call.</p>"
+        },
+        {
+          "id": "can-i-monitor-call",
+          "question": "Can I monitor a call while it's being handled by AI Assistant?",
+          "answer": "<p>Yes, you can monitor ongoing calls with real-time live transcriptions directly from the caller’s conversation screen.</p><p><strong>Steps to view live transcription:</strong></p><p>Open the <strong>Home Screen</strong> → Go to the <strong>Caller Screen</strong>.</p><p>From there, you can access the conversation screen to monitor the call in real time as the AI Assistant interacts with the caller.</p>"
+        },
+        {
+          "id": "can-assistant-make-calls",
+          "question": "Can the AI Assistant make calls for me?",
+          "answer": "<p>AI Assistant is designed to handle incoming calls from unknown numbers on your behalf. Currently, it focuses on screening and managing inbound calls.</p>"
+        },
+        {
+          "id": "getting-direct-call-from-known-number",
+          "question": "Why am I getting a direct call from an unknown number?",
+          "answer": "<p>Most of the time, Equal AI will screen your calls smoothly but sometimes a call might ring directly to you due to things outside our control.</p><p>Here's why that might happen:</p><p>1. Weak internet connection: Equal AI needs a good internet connection to work. If your connection drops or slows down when a call comes in, we'll connect it directly to you so you don't miss it.</p><p>2. Multiple calls at once: If you get several calls one after another very quickly, we may connect them directly to make sure nothing urgent gets missed.</p><p>3. Dual SIM phones: If the AI Assistant is set up on one SIM but the call comes through on your other SIM, it will ring directly without going through the AI Assistant.</p><p>4. Missing permissions: Equal AI needs to be set as your Caller ID app to work properly. If this permission gets turned off, calls won't be screened. You can fix this in Settings by making Equal AI your default Caller ID app.</p><p>These situations are rare, but they can occasionally cause a direct ring instead of the AI Assistant handling it first.</p>"
+        },
+        {
+          "id": "ongoing-call-notification",
+          "question": "Will I be notified when the call is going on with the AI Assistant?",
+          "answer": "<p>Yes, you will receive a notification when an unknown caller contacts you and the AI Assistant answers the call on your behalf.</p>"
+        },
+        {
+          "id": "can-i-customize-what-assistant-asks-caller",
+          "question": "Can I customise what AI Assistant should ask to the unknown caller while handling the call?",
+          "answer": "<p>Yes, you can customize what the AI Assistant asks while a call is in progress.</p><p><strong>Steps to customize messages:</strong></p><p>Open the <strong>Home Screen</strong> → Go to the <strong>Caller Screen</strong> → Use the <strong>Message option.</strong></p><p>You can choose from pre-defined messages or type your own custom message, and the AI Assistant will use it during the call.</p>"
+        },
+        {
+          "id": "where-can-i-give-feedback",
+          "question": "Where can I give the feedback?",
+          "answer": "<p>You can share your feedback through multiple channels:</p><p>1. <strong>In-app Feedback:</strong> After every call, you will see an option within the app to provide feedback.</p><p>2. <strong>Google Play Store:</strong> you can leave a review and rating on the app’s Play Store page.</p><p>3. <strong>Customer Support:</strong> you can also share your feedback by contacting customer support directly.</p><p>We'd love to hear how your AI Assistant is doing - your feedback helps us make it serve you better</p>"
+        },
+        {
+          "id": "dont-see-anything-after-installation",
+          "question": "Why don't I see anything happening after installing the app?",
+          "answer": "<p>Equal AI works seamlessly in the background. You will only notice activity when an unknown caller contacts you and the AI Assistant steps in to handle the call.<br>If you’d like to test it immediately, you can use the demo feature.</p><p><strong>Steps to get a demo call:</strong></p><p>Open the <strong>Home Screen</strong> → Tap on <strong>“Call Now”</strong> (available under <strong>“Talk to Your Assistant”</strong>).</p><p>This will initiate a demo call so you can experience how your AI Assistant handles conversations.</p>"
+        },
+        {
+          "id": "how-do-i-know-assistant-is-activated",
+          "question": "How do I know that the AI Assistant is Activated?",
+          "answer": "<p>You can check the status of your AI Assistant on the home screen If the assistant is OFF, you can simply turn it ON from the home screen to let the AI assistant handle calls.</p>"
+        },
+        {
+          "id": "meet-your-assistant",
+          "question": "What is \"Talk to Your Assistant\"?",
+          "answer": "<p><strong>“Talk to Your Assistant”</strong> is a demo feature that allows you to have a test conversation with your AI Assistant. It helps you experience how the assistant handles calls and interacts with callers - so you can understand its behavior and responses before receiving a real call.</p>"
+        },
+        {
+          "id": "test-equal-ai-after-installation",
+          "question": "How can I test Equal AI after installation?",
+          "answer": "<p>To experience a demo call from your AI assistant, simply tap <strong>“Call Now”</strong> or <strong>“Talk to Your Assistant”</strong> on the Home Screen.</p>"
+        },
+        {
+          "id": "how-is-equal-ai-different",
+          "question": "How is Equal AI different from other call-related apps?",
+          "answer": "<p>Equal AI uses advanced conversational AI to handle calls naturally, understand context, and make intelligent decisions in real time. Unlike basic call blockers, it can engage in meaningful two-way conversations with callers, adapt to your preferences, and generate clear, detailed summaries for you afterward.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "assistant-setup",
+      "title": "Assistant Setup",
+      "image": "/resources/Frame-2085664139.png",
+      "items": [
+        {
+          "id": "how-to-complete-assistant-setup",
+          "question": "How to successfully complete assistant setup?",
+          "answer": "<p><strong>Steps:</strong></p><p>1. Open the app<br>2. Click on “Setup My Assistant”<br>3. Enter Your Mobile no. and click on Send OTP<br>4. Enter OTP and click on Verify OTP<br>5. Enter Your name and select your Gender then click on next<br>6. Give the Required Permissions<br>7. Choose the Assistant voice<br>8. Set Equal AI as Default Caller ID and Spam App<br>9. Select the sim for which you want Equal AI Assistant to handle calls.<br>10. You are all set!!!</p>"
+        },
+        {
+          "id": "call-forwarding-failure",
+          "question": "How can I fix repeated call forwarding setup failures?",
+          "answer": "<p>If you are experiencing a call forwarding failure, please follow the steps below:</p><p><strong>First, try the basic steps:<br>1.</strong> Tap on the <strong>“Try Now”</strong> option to attempt the setup again.<br>2. Wait for some time and retry the process.</p><p><strong>If the issue persists:<br>1.</strong> Toggle <strong>Airplane Mode</strong> on and off.<br>2. Restart your phone.<br>3. Reset your network settings.<br>4. Contact customer support for further assistance.</p><p><strong>Note:</strong> Ensure that you have a stable and proper network connection, as successful call forwarding setup (Assistant Activation) depends on network availability.</p>"
+        },
+        {
+          "id": "not-getting-otp",
+          "question": "What should I do if I am not receiving the OTP?",
+          "answer": "<p>If you are not receiving the OTP, please try the following: <br>1. Ensure you have a stable network connection (mobile data or Wi-Fi). <br>2. Wait for a few minutes and try requesting the OTP again.<br>If the issue persists, consider restarting your device or checking if SMS services are active on your number.</p>"
+        },
+        {
+          "id": "entered-wrong-name-or-gender",
+          "question": "Can I update my name or gender after signing up?",
+          "answer": "<p>Yes, you can update your name and gender even after successfully completing onboarding.</p><p><strong>Steps to update name and gender:</strong></p><p>Open the <strong>Home Screen</strong> → Go to <strong>Settings</strong> → Tap on <strong>Personal Details</strong> → Edit your name and gender, then save the changes.</p><p>The updated details will be reflected in how the assistant represents you during the call.</p>"
+        },
+        {
+          "id": "why-disable-call-forwarding",
+          "question": "Why do I need to disable call forwarding before deleting my account or logging out?",
+          "answer": "<p>Call forwarding is operated by your network provider. If you don't disable it before leaving Equal AI, your calls may continue being forwarded even after your account is deleted. Disabling call forwarding ensures calls come straight to your phone.</p>"
+        },
+        {
+          "id": "chose-wrong-assistant-voice",
+          "question": "Can I change the assistant’s voice after onboarding?",
+          "answer": "<p>Yes, you can always change your assistant’s voice at any time.</p><p><strong>Steps to update the assistant’s voice after onboarding:</strong></p><p>Open the <strong>Home Screen</strong> → Go to <strong>Settings</strong> → Tap on <strong>Assistant’s Voice” →</strong> Select your preferred voice option.</p><p>The updated voice will be applied immediately for future calls handled by the assistant.</p>"
+        },
+        {
+          "id": "call-forwarding-with-different-number",
+          "question": "Can I register using one number and activate the assistant on a different number?",
+          "answer": "<p>Yes, the number you use to sign up doesn't have to be the same number where the AI Assistant answers calls. You can register with one number and then forward calls from a different number to activate the assistant on that line.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "assistant-customization",
+      "title": "Assistant Customization",
+      "image": "/resources/Frame-2085663244.png",
+      "items": [
+        {
+          "id": "assistant-voice-customization",
+          "question": "Can I customize the AI assistant’s voice?",
+          "answer": "<p>Yes, you can change the assistant’s voice at any time.</p><p><strong>Steps to change the assistant’s voice:</strong></p><p>Open the <strong>Home Screen</strong> → Go to <strong>Settings</strong> → Tap on <strong>“Assistant’s Voice” →</strong> Select your preferred voice option.</p><p>The assistant will then use the selected voice for handling calls.</p>"
+        },
+        {
+          "id": "changing-personal-details",
+          "question": "Is it possible to update my profile details in Equal AI?",
+          "answer": "<p>Yes, you can update your personal details at any time by clicking on your Profile.</p><p><strong>Steps to change personal details:</strong></p><p>Open the <strong>Home Screen</strong> → Go to <strong>Settings</strong> → Tap on <strong>“Personal Details.” →</strong> Update the required information and save the changes.</p>"
+        },
+        {
+          "id": "silent-promotional-calls",
+          "question": "Can I ask customized questions to the caller while the AI assistant is handling the call?",
+          "answer": "<p>Yes, you can ask customized questions to the caller by following these steps:</p><p><strong>Steps to send a custom message:</strong></p><p>Open the <strong>Home Screen</strong> → Go to the <strong>Caller Screen</strong> → Type your message in the message box at the bottom of the screen.</p><p>The assistant will use your custom message to interact with the caller accordingly.</p>"
+        },
+        {
+          "id": "how-is-equal-ai-different",
+          "question": "Which languages does Equal AI Assistant currently support?",
+          "answer": "<p>Equal AI Assistant currently supports <strong>English and Hindi</strong>. Assistant can automatically detect and switch between both the languages based on how the caller is speaking during the call. Support for more Indian languages will be coming soon!</p>"
+        }
+      ]
+    },
+    {
+      "slug": "my-account",
+      "title": "My Account",
+      "image": "/resources/Frame-2085663245.png",
+      "items": [
+        {
+          "id": "equal-ai-on-two-numbers",
+          "question": "Can I activate Equal AI on two phone numbers?",
+          "answer": "<p>Currently, Equal AI supports only one phone number per user. Support for multiple phone numbers (up to two) will be available soon.</p>"
+        },
+        {
+          "id": "which-devices-and-os-supported",
+          "question": "Which devices and Android versions are supported by Equal AI?",
+          "answer": "<p>Equal AI works on Android devices running Android 10 or higher. It's compatible with all major telecom providers in India, except BSNL. iOS support is coming soon.</p>"
+        },
+        {
+          "id": "account-deletion",
+          "question": "Can I stop call forwarding to AI Assistant?",
+          "answer": "<p>Yes, you can stop call forwarding to AI Assistant anytime you want. Please follow the below steps:</p><p>Disable Call Forwarding:</p><p>1. Open your phone dialer <br>2. Dial ##002# and place the call (disables all call forwarding on your phone)</p>"
+        }
+      ]
+    },
+    {
+      "slug": "network-and-performance",
+      "title": "Network & Performance",
+      "image": "/resources/Frame-2085663246.png",
+      "items": [
+        {
+          "id": "weak-or-unstable-internet",
+          "question": "Will Equal AI work if my internet is unstable or weak?",
+          "answer": "<p>Equal AI requires an active mobile data or Wi-Fi connection for real-time cloud processing. A stable internet connection ensures the best performance and accurate call handling. If proper internet connection is not available, Equal AI will automatically connect the call directly to you instead of the assistant handling it.</p>"
+        },
+        {
+          "id": "data-usage",
+          "question": "How much mobile data does Equal AI use?",
+          "answer": "<p>Equal AI uses about 1-2 MB per call. For most users who receive 20-30 calls a day, this works out to roughly 30-60 MB daily - a fairly light footprint that won't strain your data plan.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "data-and-privacy",
+      "title": "Data & Privacy",
+      "image": "/resources/Frame-2085663243.png",
+      "items": [
+        {
+          "id": "are-all-calls-recorded",
+          "question": "Which calls are recorded, and why are they stored?",
+          "answer": "<p>Only the portion of each call handled by the AI Assistant is recorded. Recording stops once the call is transferred to you. Direct calls that bypass the assistant are also not recorded These recordings and transcripts are stored exclusively for your reference and to generate call summaries, helping you review conversations and stay informed about who called and why.</p><p>You retain full control over your data and can access, review, and delete recordings and transcripts at any time through the app. Equal AI does not share or use your call recordings for any purpose other than providing you with summaries and references. By using Equal AI, you acknowledge that the AI-handled portion of calls will be recorded for these purposes in compliance with applicable laws.</p>"
+        },
+        {
+          "id": "who-can-access-my-calls",
+          "question": "Who can access my call recordings and data?",
+          "answer": "<p>Only you can access your call recordings and data through your Equal AI account. We do not share, sell, or disclose your recordings or personal information to third parties, except where required by applicable law or with your explicit consent.</p><p>Your data is stored securely using industry-standard encryption to protect your privacy. You have the right to access, review, export, and delete your data at any time. For complete details on how we handle and protect your information, please review our Privacy Policy.</p>"
+        },
+        {
+          "id": "why-caller-id-permission",
+          "question": "Why is Equal AI taking caller ID permission?",
+          "answer": "<p>Equal AI displays caller details using a green card, helping users quickly identify who is calling. To show this information accurately, the app requires access to Caller ID permissions.</p>"
+        },
+        {
+          "id": "permanent-deletion-call-recordings-and-summaries",
+          "question": "Can I permanently delete call recordings and summaries?",
+          "answer": "<p>Yes, users can permanently delete the call recordings and summaries by following these steps:</p><p>Open home screen → Open caller screen → Open caller profile → Call logs can be seen under call history → Swipe from right to left on the call log and it will be deleted.</p>"
+        }
+      ]
+    }
+  ]
+}

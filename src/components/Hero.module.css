@@ -1,9 +1,7 @@
 /*
- * Hero. Pinned for two viewports of scrolling; HeroPin exposes the overall
- * progress as `--p` (0..1), split here into two phases:
- *   --a  headline glides left and shrinks, horizon sinks, phone fades up onto it
- *   --b  headline fades, phone moves to the centre and grows, an ambient glow
- *        blooms around it, then glow and horizon fade to black for the next section
+ * Opening. One pinned stage: the arrow field and headline hold, then lift and
+ * fade (--H, off the scroll progress --p that HeroPin writes) as the demo
+ * section, pulled up underneath, fades in behind them.
  */
 
 .hero {
@@ -12,17 +10,15 @@
 }
 
 .runway {
-  height: 300vh;
+  height: 240vh;
 }
 
 .pin {
   --p: 0;
-  --a: clamp(0, var(--p) * 2, 1);
-  --b: clamp(0, var(--p) * 2 - 1, 1);
-  /* ease-out: the headline clears the centre early, before the phone arrives */
-  --m: calc(var(--a) * (2 - var(--a)));
-  /* smoothstep for the second phase */
-  --n: calc(var(--b) * var(--b) * (3 - 2 * var(--b)));
+  --hero-out: clamp(0, (var(--p) - 0.3) / 0.45, 1);
+  /* smoothstepped, so it eases in and settles rather than arriving */
+  --H: calc(var(--hero-out) * var(--hero-out) * (3 - 2 * var(--hero-out)));
+
   --mint: #6ff0b4;
   position: sticky;
   top: 0;
@@ -31,45 +27,104 @@
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  background: #000;
+  /* No background on purpose: the demo is pulled up underneath and takes over
+     as the headline goes. */
 }
 
-/* ---- Planet horizon ------------------------------------------------------ */
+/* ---- Hero backdrop and headline ------------------------------------------ */
 
-/* Planet limb image: fills the stage at rest (its arc sits just below centre,
-   as in the design), then slides down as the phone lands on it and again as the
-   phone centres, so the light source moves out of frame rather than vanishing. */
-.horizon {
+/* The arrow field. It drifts up a touch as it goes, so the cut to the demo
+   reads as the camera moving rather than a light being switched off. */
+.bg {
   position: absolute;
-  inset: 0;
+  /* Extends past the bottom by more than the lift below, so travelling upward
+     never drags its edge into frame and leaves a black band across the bottom.
+     The overflow is clipped by the stage, so it costs nothing at rest. */
+  inset: 0 0 -8vh 0;
   z-index: 0;
-  transform: translate3d(0, calc(24vh + var(--m) * 10vh + var(--n) * 30vh), 0);
-  opacity: calc(1 - clamp(0, (var(--b) - 0.7) / 0.3, 1));
+  transform: translate3d(0, calc(var(--H) * -6vh), 0) scale(calc(1 + var(--H) * 0.06));
+  opacity: calc(1 - var(--H));
   pointer-events: none;
   will-change: transform, opacity;
 }
-.horizonImg {
+.bgImg {
   object-fit: cover;
-  object-position: 50% 38%;
 }
 
-/* Fades in as the phone centres, and back out before the next section. */
-.ambient {
+/* ---- Flickering dots ----------------------------------------------------- */
+
+/* Rides the same fade as the field it sits on, so it goes when the field does. */
+.sparks {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: calc(clamp(0, var(--b) / 0.45, 1) - clamp(0, (var(--b) - 0.7) / 0.3, 1));
+  opacity: calc(1 - var(--H));
   pointer-events: none;
 }
-.ambientImg {
-  object-fit: cover;
+/* Set by SparkField once the field is faded out or off screen: stops the
+   dots' animations, which otherwise repaint every frame. */
+.sparks[data-off] {
+  display: none;
 }
 
-/* ---- Copy ---------------------------------------------------------------- */
+/* --near (0..1) is written by SparkField from the pointer's distance. It scales
+   how brightly the dot's own flicker reads, rather than adding a second
+   animation that would fight the first. */
+.spark {
+  --near: 0;
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--mint);
+  transform: scale(calc(1 + var(--near) * 1.1));
+  filter: brightness(calc(1 + var(--near) * 2.6));
+  /* Eases the lift as the pointer sweeps past; the flicker itself is untouched.
+     The glow is in here too, or it would snap while the rest eased. */
+  transition:
+    transform 260ms ease-out,
+    filter 260ms ease-out,
+    box-shadow 260ms ease-out;
+  /* Two shadows: a tight core and a wider bloom, so a dot this small still
+     reads as a light rather than a dab of flat colour. */
+  box-shadow:
+    0 0 calc(var(--size) * 1.6) rgba(150, 255, 205, 0.9),
+    0 0 calc(var(--size) * 4) rgba(111, 240, 180, 0.55),
+    0 0 calc(var(--size) * (9 + var(--near) * 10)) rgba(111, 240, 180, calc(0.25 + var(--near) * 0.35));
+  opacity: 0;
+  /* Negative delays start each one mid-cycle, so they are already out of step
+     on the first frame instead of pulsing together and then drifting apart. */
+  animation: flicker var(--duration) ease-in-out var(--delay) infinite;
+}
 
-/* Centred on the stage; at rest it is lifted so the headline sits where the
-   design puts it, and it ends vertically centred, 24% of the width to the
-   left, at 60% scale. */
+/* Uneven rather than sharp: the brightness never snaps to black and never
+   settles into a regular beat, so it reads as a light that is wavering instead
+   of one being switched on and off. */
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: calc(var(--peak) * 0.18);
+  }
+  14% {
+    opacity: var(--peak);
+  }
+  28% {
+    opacity: calc(var(--peak) * 0.4);
+  }
+  42% {
+    opacity: calc(var(--peak) * 0.88);
+  }
+  58% {
+    opacity: calc(var(--peak) * 0.26);
+  }
+  72% {
+    opacity: calc(var(--peak) * 0.7);
+  }
+  88% {
+    opacity: calc(var(--peak) * 0.34);
+  }
+}
+
 .copy {
   position: absolute;
   top: 50%;
@@ -78,33 +133,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translate(calc(-50% - var(--m) * 346 * var(--u) - var(--n) * 60 * var(--u)), calc(-50% + (1 - var(--m)) * (330 * var(--u) - 50vh)))
-    scale(calc(1 - var(--m) * 0.4));
-  opacity: calc(1 - clamp(0, var(--b) / 0.4, 1));
+  /* Leaves upward rather than just dissolving in place: the copy lifts out of
+     frame as the demo comes up behind it, so the two read as one move. */
+  transform: translate(-50%, calc(-50% - var(--H) * 34vh)) scale(calc(1 + var(--H) * 0.08));
+  opacity: calc(1 - clamp(0, var(--H) / 0.7, 1));
   will-change: transform, opacity;
+}
+
+.eyebrow {
+  margin: 0 0 calc(20 * var(--u));
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(12px, calc(15 * var(--u)), 15px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mint);
 }
 
 .h1 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: fit-content;
   margin: 0;
   font-weight: 500;
-  font-size: clamp(56px, calc(128 * var(--u)), 128px);
-  line-height: 1;
+  font-size: clamp(48px, calc(112 * var(--u)), 112px);
+  line-height: 1.05;
+  text-align: center;
   color: #fff;
 }
 
 .line {
   display: block;
-  width: fit-content;
   white-space: nowrap;
-}
-/* Line 1 is nudged right by half the width difference so the pair reads as
-   centred at rest, and settles to left-aligned as the block moves left. */
-.line[data-line="1"] {
-  transform: translateX(calc(var(--l1shift, 0px) * (1 - var(--m))));
 }
 
 .accent {
@@ -117,83 +178,72 @@
   text-align: center;
   font-size: clamp(13px, calc(16 * var(--u)), 16px);
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.5);
-  opacity: calc(1 - clamp(0, var(--a) / 0.3, 1));
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* ---- Phone --------------------------------------------------------------- */
+/* ---- Nav ----------------------------------------------------------------- */
 
-.phone {
-  --raw: clamp(0, (var(--a) - 0.35) / 0.5, 1);
-  /* smoothstep, so it eases in and settles softly */
-  --ph: calc(var(--raw) * var(--raw) * (3 - 2 * var(--raw)));
+/* Sits over the top of the section rather than inside the pinned stage, so it
+   scrolls away with the page instead of holding at the top of the screen. */
+.nav {
   position: absolute;
-  left: 62%;
-  bottom: 4vh;
-  z-index: 1;
-  height: min(68vh, calc(600 * var(--u)));
-  /* Fades out again at the very end so the hero hands over on clean black. */
-  opacity: calc(var(--ph) * (1 - clamp(0, (var(--b) - 0.78) / 0.22, 1)));
-  /* phase A: rise in at 62%; phase B: glide to the centre, lift, and grow */
-  transform: translate(calc(-50% - var(--n) * 173 * var(--u)), calc((1 - var(--ph)) * 80px - var(--n) * 2vh))
-    scale(calc(0.94 + 0.06 * var(--ph) + 0.12 * var(--n)));
-  will-change: transform, opacity;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
 }
 
-.phoneImg {
-  width: auto;
-  height: 100%;
-  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
-}
+/* ---- Small screens ------------------------------------------------------ */
 
-/* ---- Small screens: no pin, everything stacked and visible ---------------- */
-
+/* Pinned as on desktop, so the headline lifts away as the demo fades up
+   behind it, rather than the field ending in a hard edge. Just resized. */
 @media (max-width: 1023px) {
+  .copy {
+    width: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 13px;
+  }
+  .h1 {
+    font-size: clamp(46px, 13.5vw, 64px);
+  }
+  .sub {
+    max-width: 320px;
+    margin-top: 22px;
+    font-size: 17px;
+    line-height: 1.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spark {
+    animation: none;
+    opacity: calc(var(--peak) * 0.5);
+    transform: none;
+    filter: none;
+    transition: none;
+  }
   .runway {
     height: auto;
   }
   .pin {
-    --m: 0;
-    --n: 0;
-    --b: 0;
+    --H: 0;
     position: static;
     height: auto;
-    min-height: 620px;
-    padding-bottom: 48px;
+    padding-bottom: 96px;
   }
-  .horizon {
+  .bg {
     transform: none;
   }
   .copy {
     position: static;
     width: 100%;
-    margin-top: 96px;
+    margin-top: 120px;
     padding: 0 16px;
     box-sizing: border-box;
     transform: none;
-  }
-  .h1 {
-    align-items: center;
-    font-size: 56px;
-  }
-  .line[data-line="1"] {
-    transform: none;
-  }
-  .sub {
-    opacity: 1;
-  }
-  .phone {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    width: min(70%, 320px);
-    height: auto;
-    margin-top: 48px;
-    opacity: 1;
-    transform: none;
-  }
-  .phoneImg {
-    width: 100%;
-    height: auto;
   }
 }

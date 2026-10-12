@@ -1,104 +1,307 @@
+/* Pulled up over the tail of the phones section so the heading starts arriving
+   while those phones are still fading, rather than after they have gone and
+   left a stretch of empty black. No background here on purpose: a fill would
+   hide the phones behind it. */
 .section {
+  margin-top: -160vh;
+  margin-bottom: calc(34 * var(--u));
+}
+
+/* One viewport of pin per beat of the entrance, plus the pinned viewport. */
+.runway {
+  height: 340vh;
+}
+
+.pin {
+  --p: 0;
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(838 * var(--u));
-  margin-bottom: calc(34 * var(--u));
-  padding-top: calc(110 * var(--u));
-  box-sizing: border-box;
-  background: var(--color-bg);
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
+/* The heading arrives first, scaling up out of nothing. */
 .heading {
+  --raw: clamp(0, calc((var(--p) - 0.02) / 0.22), 1);
+  --in: calc(var(--raw) * var(--raw) * (3 - 2 * var(--raw)));
   width: calc(1029 * var(--u));
   margin: 0;
   text-align: center;
   font-weight: 600;
   font-size: clamp(36px, calc(64 * var(--u)), 64px);
-  line-height: 1;
+  line-height: 1.05;
   color: #fff;
+  transform: scale(calc(0.86 + 0.14 * var(--in)));
+  opacity: var(--in);
+  will-change: transform, opacity;
 }
 
 .accent {
   color: var(--color-accent);
 }
 
-/* Carousel ------------------------------------------------------------- */
-
-.track {
-  --card-w: calc(440 * var(--u));
-  --gap: calc(28 * var(--u));
-  display: flex;
-  gap: var(--gap);
-  width: 100%;
-  margin-top: calc(83 * var(--u));
-  /* Lets the first and last card scroll to the centre. */
-  padding: calc(24 * var(--u)) calc(50% - var(--card-w) / 2);
-  box-sizing: border-box;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  cursor: grab;
-  perspective: calc(1400 * var(--u));
+/* Rides in with the heading. */
+.sub {
+  --raw: clamp(0, calc((var(--p) - 0.06) / 0.22), 1);
+  --in: calc(var(--raw) * var(--raw) * (3 - 2 * var(--raw)));
+  max-width: calc(560 * var(--u));
+  margin: calc(18 * var(--u)) 0 0;
+  text-align: center;
+  font-size: clamp(15px, calc(18 * var(--u)), 18px);
+  line-height: 1.5;
+  color: var(--color-muted);
+  opacity: var(--in);
 }
-.track::-webkit-scrollbar {
+
+/* ---- Marquee ------------------------------------------------------------- */
+
+/* Full-bleed: the strip runs past the page's 1440px frame, so cards enter and
+   leave at the window's edges rather than at the layout's. Faded at both ends
+   so they arrive and depart rather than popping. */
+.marquee {
+  width: 100vw;
+  margin-top: calc(36 * var(--u));
+  /* Clipped: VoiceMarquee moves the track itself (drift, drag, swipe and the
+     arrows all share one transform). Vertical touch-scrolling still passes
+     through to the page; sideways drags come to the strip. */
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+/* Holds the strip and its arrows; the arrows sit outside the masked strip so
+   its edge fade does not dim them. */
+.strip {
+  /* Capped by viewport height, not just width: the section is pinned now, so
+     heading + subline + card + caption all have to fit one screen. A card is
+     440x584 plus roughly 100px of caption, hence sizing from the height budget.
+     Set here so the arrows can line up with the cards too. */
+  --card-w: min(calc(440 * var(--u)), 35vh);
+  --gap: calc(28 * var(--u));
+  --arrow: calc(52 * var(--u));
+  position: relative;
+  width: 100vw;
+}
+
+.arrow {
+  --raw: clamp(0, calc((var(--p) - 0.5) / 0.08), 1);
+  position: absolute;
+  /* Level with the middle of the card photos. */
+  top: calc(var(--card-w) * 584 / 440 / 2 + 36 * var(--u) - var(--arrow) / 2);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: var(--arrow);
+  height: var(--arrow);
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(10, 14, 12, 0.6);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: var(--raw);
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+.arrow:hover {
+  opacity: var(--raw);
+  border-color: #6ff0b4;
+  background: #6ff0b4;
+  color: #04130c;
+}
+.arrow:focus-visible {
+  outline: 2px solid #6ff0b4;
+  outline-offset: 3px;
+}
+.arrow svg {
+  width: 45%;
+  height: 45%;
+}
+.arrowPrev {
+  left: calc(28 * var(--u));
+}
+.arrowNext {
+  right: calc(28 * var(--u));
+}
+
+.marquee::-webkit-scrollbar {
   display: none;
 }
-.track:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: -2px;
-}
-.dragging {
+.grabbing {
   cursor: grabbing;
-  scroll-snap-type: none;
-  scroll-behavior: auto;
-  user-select: none;
 }
 
-/* --lit (0..1) and --tilt (deg) are driven by TestimonialCarousel from each card's
-   distance to the centre of the track. */
+.track {
+  display: flex;
+  gap: var(--gap);
+  width: max-content;
+  will-change: transform;
+}
+
+/* ---- Card ---------------------------------------------------------------- */
+
+/* --rs / --rd are this card's slot in the entrance, written by VoiceMarquee.
+   Each scales up into place; the strip does not start running until they have
+   all landed. */
 .card {
-  --lit: 0;
-  --tilt: 0;
+  --raw: clamp(0, calc((var(--p) - var(--rs, 0)) / var(--rd, 1)), 1);
+  --in: calc(var(--raw) * var(--raw) * (3 - 2 * var(--raw)));
   flex: 0 0 var(--card-w);
+  width: var(--card-w);
   margin: 0;
-  border-radius: calc(28 * var(--u));
-  overflow: hidden;
-  scroll-snap-align: center;
-  transform: rotateY(calc(var(--tilt) * 1deg)) scale(calc(0.9 + 0.1 * var(--lit)));
-  opacity: calc(0.4 + 0.6 * var(--lit));
+  transform: scale(calc(0.78 + 0.22 * var(--in)));
+  opacity: var(--in);
   will-change: transform, opacity;
 }
 
-.cardImage {
-  display: block;
+.frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 440 / 584;
+  border-radius: calc(24 * var(--u));
+  background: #111;
+}
+
+.photo {
   width: 100%;
-  height: auto;
-  /* Hides the anti-aliased fringe left on the source crops' edges. */
-  transform: scale(1.015);
+  height: 100%;
+  object-fit: cover;
+  /* Otherwise the browser's native image drag hijacks the strip drag. */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---- Controls ------------------------------------------------------------ */
+
+.controls {
+  position: absolute;
+  right: calc(20 * var(--u));
+  bottom: calc(20 * var(--u));
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--u));
+}
+
+.mute,
+.play {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.mute {
+  width: calc(44 * var(--u));
+  height: calc(44 * var(--u));
+  background: rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.play {
+  width: calc(56 * var(--u));
+  height: calc(56 * var(--u));
+  background: #fff;
+  color: #000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.mute svg,
+.play svg {
+  width: 52%;
+  height: 52%;
+}
+
+/* ---- Caption ------------------------------------------------------------- */
+
+.caption {
+  margin: calc(18 * var(--u)) 0 0;
+}
+
+.line {
+  margin: 0;
+  font-size: clamp(15px, calc(19 * var(--u)), 19px);
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.name {
+  color: #fff;
+}
+
+.role {
+  margin: calc(10 * var(--u)) 0 0;
+  font-size: clamp(10px, calc(12 * var(--u)), 12px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
 }
 
 @media (max-width: 1023px) {
-  .section {
-    height: auto;
-    margin-bottom: 0;
-    padding: 64px 0 80px;
+
+  .strip {
+    --card-w: min(78vw, 340px);
+    --gap: 16px;
+    --arrow: 44px;
+  }
+  /* A gentler edge fade: at this width the cards nearly fill the screen. */
+  .marquee {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  }
+  .arrowPrev {
+    left: 12px;
+  }
+  .arrowNext {
+    right: 12px;
   }
   .heading {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 20px;
     box-sizing: border-box;
-    font-size: 36px;
+    font-size: clamp(32px, 9vw, 40px);
   }
-  .track {
-    --card-w: min(80vw, 360px);
-    --gap: 16px;
-    margin-top: 40px;
-    perspective: 900px;
+  .sub {
+    max-width: none;
+    padding: 0 24px;
+    font-size: 16px;
   }
+  .marquee {
+    margin-top: 28px;
+  }
+  .line {
+    font-size: 17px;
+  }
+}
+
+/* Under reduced motion the drift is skipped in VoiceMarquee; the strip stays a
+   plain horizontal scroller, so the cards are all still reachable. Nothing
+   drives --p either, so the section is shown as it finally rests. */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    margin-top: 0;
+    background: var(--color-bg);
+  }
+  .runway {
+    height: auto;
+  }
+  .pin {
+    position: static;
+    height: auto;
+    padding: 96px 0;
+  }
+  .heading,
   .card {
-    border-radius: 20px;
+    transform: none;
+    opacity: 1;
   }
 }

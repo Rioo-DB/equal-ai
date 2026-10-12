@@ -10,22 +10,35 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: calc(252 * var(--u));
+  /* Logo hard left, links hard right, an even inset at both ends. (The old
+     fixed 252px gap centred logo + three links; with the links down to two it
+     left lopsided empty ends.) */
+  justify-content: space-between;
   width: calc(738 * var(--u));
+  padding: 0 calc(40 * var(--u)) 0 calc(36 * var(--u));
+  box-sizing: border-box;
   height: calc(71 * var(--u));
   border-radius: 200px;
-  /* Glass: translucent fill, a faint top sheen, and a soft drop shadow. */
+  /* Glass. The fill is kept light so the blurred arrow field reads through it —
+     that showing-through is what sells it as glass rather than a dark chip.
+     Saturating and lifting the backdrop keeps the green alive under the frost
+     instead of going grey, and the two inset highlights give the pane a lit top
+     edge and a catch along the bottom, as a real curved surface would have. */
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 55%),
-    rgba(9, 9, 9, 0.32);
+    radial-gradient(120% 100% at 50% -30%, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03) 45%, transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 45%, rgba(255, 255, 255, 0.05)),
+    rgba(12, 16, 14, 0.22);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 12px 40px rgba(0, 0, 0, 0.35);
+    inset 0 1px 1px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.07),
+    inset 0 12px 28px rgba(255, 255, 255, 0.04),
+    0 16px 50px rgba(0, 0, 0, 0.5),
+    0 2px 10px rgba(0, 0, 0, 0.3);
   /* Figma "Background blur" on the pill: it smooths the dot pattern behind it. */
-  backdrop-filter: blur(48px);
-  -webkit-backdrop-filter: blur(48px);
+  backdrop-filter: blur(28px) saturate(180%) brightness(1.18);
+  -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.18);
 }
+
 
 /* 1px glass edge: a gradient stroke, brightest where light catches the rim
    (top-left), drawn without affecting layout. */
@@ -37,10 +50,10 @@
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.12) 35%,
-    rgba(255, 255, 255, 0.06) 65%,
-    rgba(255, 255, 255, 0.28)
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.16) 35%,
+    rgba(255, 255, 255, 0.08) 62%,
+    rgba(255, 255, 255, 0.42)
   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
@@ -54,14 +67,14 @@
 }
 
 .logo {
-  width: calc(99 * var(--u));
-  height: calc(29 * var(--u));
+  width: calc(114 * var(--u));
+  height: calc(24 * var(--u));
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: calc(62 * var(--u));
+  gap: calc(44 * var(--u));
   font-family: var(--font-jakarta), system-ui, sans-serif;
   font-size: clamp(13px, calc(16 * var(--u)), 16px);
   line-height: normal;
@@ -98,8 +111,8 @@
     background: rgba(9, 9, 9, 0.6);
   }
   .logo {
-    width: 82px;
-    height: 24px;
+    width: 95px;
+    height: 20px;
   }
   .nav {
     display: none;

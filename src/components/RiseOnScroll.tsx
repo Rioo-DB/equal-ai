@@ -12,6 +12,13 @@ type Props = {
    * finish. The rise begins as the parent's top enters at the bottom of the viewport.
    */
   settleAt?: number;
+  /**
+   * Viewport fraction to hold off by: the rise starts and finishes this much
+   * further down the scroll, so siblings can follow one another in.
+   */
+  delay?: number;
+  /** Opacity the content starts from. */
+  fromOpacity?: number;
 };
 
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -21,7 +28,14 @@ const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
  * Scroll-linked (scrubs both ways), one update per frame, and disabled under
  * prefers-reduced-motion.
  */
-export default function RiseOnScroll({ children, className, distance = 240, settleAt = 0.35 }: Props) {
+export default function RiseOnScroll({
+  children,
+  className,
+  distance = 240,
+  settleAt = 0.35,
+  delay = 0,
+  fromOpacity = 0.15,
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,13 +47,13 @@ export default function RiseOnScroll({ children, className, distance = 240, sett
     let raf = 0;
     const update = () => {
       raf = 0;
-      const top = parent.getBoundingClientRect().top;
+      const top = parent.getBoundingClientRect().top + delay * window.innerHeight;
       const start = window.innerHeight;
       const end = window.innerHeight * settleAt;
       const t = Math.min(Math.max((start - top) / (start - end), 0), 1);
       const p = easeOutCubic(t);
       el.style.transform = `translate3d(0, ${(1 - p) * distance}px, 0)`;
-      el.style.opacity = String(0.15 + 0.85 * p);
+      el.style.opacity = String(fromOpacity + (1 - fromOpacity) * p);
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -53,7 +67,7 @@ export default function RiseOnScroll({ children, className, distance = 240, sett
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);
     };
-  }, [distance, settleAt]);
+  }, [distance, settleAt, delay, fromOpacity]);
 
   return (
     <div ref={ref} className={className}>

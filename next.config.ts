@@ -4,8 +4,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     // Next 16 requires every quality used by <Image quality> to be allowlisted.
-    // 90 keeps the green glow gradients from banding.
-    qualities: [90, 100],
+    // 90 keeps the green glow gradients from banding; 80 and 82 are the hero
+    // ambient wash and the testimonial portraits.
+    qualities: [80, 82, 90, 100],
   },
 
   // --- Pure static export (S3, Netlify, cPanel, ...) ---------------------

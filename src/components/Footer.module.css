@@ -1,5 +1,36 @@
 .footer {
+  position: relative;
   background: var(--color-bg);
+}
+
+/* A green bloom rising from the very bottom of the page, behind the wordmark,
+   so the site closes on light rather than on a flat black edge. Sits under the
+   footer's content and does not take pointer events. */
+.glow {
+  position: absolute;
+  right: 0;
+  bottom: calc(-26 * var(--u));
+  left: 0;
+  z-index: 0;
+  height: calc(560 * var(--u));
+  background:
+    radial-gradient(
+      62% 100% at 50% 100%,
+      rgba(90, 226, 162, 0.36) 0%,
+      rgba(52, 176, 124, 0.18) 34%,
+      rgba(32, 162, 119, 0.06) 58%,
+      transparent 78%
+    );
+  filter: blur(calc(26 * var(--u)));
+  pointer-events: none;
+}
+
+/* Everything else rides above the bloom. */
+.top,
+.divider,
+.wordmark {
+  position: relative;
+  z-index: 1;
 }
 
 /* Column x positions from the design: lead 98, PRODUCT 600, COMPANY 776, SUPPORT 952, SOCIAL 1160 */
@@ -8,8 +39,9 @@
   grid-template-columns:
     calc(502 * var(--u)) calc(176 * var(--u)) calc(176 * var(--u)) calc(208 * var(--u))
     1fr;
-  height: calc(307 * var(--u));
-  padding: calc(86 * var(--u)) 0 0 calc(98 * var(--u));
+  /* Sized by its content, not fixed: the lead column grew a subline, and a
+     fixed height let the button run into the divider. */
+  padding: calc(120 * var(--u)) calc(98 * var(--u)) calc(88 * var(--u));
   box-sizing: border-box;
 }
 
@@ -32,13 +64,21 @@
   color: var(--color-accent);
 }
 
+.sub {
+  width: calc(400 * var(--u));
+  margin: calc(20 * var(--u)) 0 0;
+  font-size: clamp(14px, calc(17 * var(--u)), 17px);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
 .cta {
   display: inline-flex;
   align-items: center;
   gap: calc(28 * var(--u));
   width: calc(199 * var(--u));
   height: calc(52 * var(--u));
-  margin-top: calc(28 * var(--u));
+  margin-top: calc(36 * var(--u));
   padding-left: calc(26 * var(--u));
   box-sizing: border-box;
   border: 1px solid var(--color-btn-border);
@@ -104,10 +144,13 @@
   height: calc(var(--h) * var(--u));
 }
 
+/* Spans the same width as the content above it, and is a quiet hairline
+   rather than a bright rule. */
 .divider {
-  width: calc(1299 * var(--u));
-  height: calc(1 * var(--u));
+  width: calc(100% - 2 * 98 * var(--u));
+  height: 1px;
   margin: 0 auto;
+  opacity: 0.18;
 }
 
 /*
@@ -116,10 +159,9 @@
  * full image is used. It is 5756x1460 == the 1440x368 slot.
  */
 .wordmark {
-  position: relative;
   width: 100%;
   aspect-ratio: 1440 / 368;
-  margin-top: calc(12 * var(--u));
+  margin-top: calc(32 * var(--u));
   overflow: hidden;
   /* The PNG's glow runs solid to its bottom edge; dissolve it into black so
      the page doesn't end on a hard bright strip. */
@@ -128,6 +170,18 @@
 }
 .wordmarkImg {
   object-fit: cover;
+  /* The PNG's alpha is cut to the letterforms, so these follow the type rather
+     than its bounding box. Three passes: a close edge, a mid bloom and a wide
+     haze, each weak on its own so the result reads as the letters giving off
+     light rather than as a glow drawn around them. */
+  filter: drop-shadow(0 0 calc(8 * var(--u)) rgba(140, 250, 200, 0.22))
+    drop-shadow(0 0 calc(30 * var(--u)) rgba(90, 226, 162, 0.16))
+    drop-shadow(0 0 calc(78 * var(--u)) rgba(52, 176, 124, 0.1));
+}
+
+/* Phones only (below): the image carries this lettering at desktop sizes. */
+.legal {
+  display: none;
 }
 
 @media (max-width: 1023px) {
@@ -139,6 +193,10 @@
   }
   .lead {
     grid-column: 1 / -1;
+  }
+  .sub {
+    width: 100%;
+    font-size: 15px;
   }
   .tagline {
     width: 100%;
@@ -178,7 +236,31 @@
     width: calc(100% - 32px);
     height: 1px;
   }
+  .legal {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 16px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .legal p {
+    margin: 0;
+  }
+  .legal p + p {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  /* The image's own top strip, with that lettering, cropped off. */
   .wordmark {
-    margin-top: 12px;
+    aspect-ratio: 1440 / 300;
+    margin-top: 16px;
+  }
+  .wordmarkImg {
+    object-position: center bottom;
   }
 }

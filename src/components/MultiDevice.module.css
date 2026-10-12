@@ -1,48 +1,237 @@
 /* The runway is taller than the viewport; the stage stays pinned while the
-   extra height scrolls past and drives the phones' rotation. */
+   extra height scrolls past and drives the phones' turn. */
+/* Pulled up over the tail of the opening section. A sticky stage keeps its
+   place for its runway minus one viewport, so the last viewport of the opening
+   is spent scrolling its spent stage away — a beat of empty black before
+   anything here pins. Starting this runway a viewport early means the close-up
+   is already pinned and waiting as the statement copy dissolves. */
+/* Pulled up under the statement section (520vh runway, 420vh of pin) so it
+   pins at 250/420 = 0.6 of the statement's progress — just as that copy starts
+   pushing out — and the phones come up straight away rather than after a
+   stretch of black. No background, so the departing copy shows over it. */
 .section {
+  margin-top: -270vh;
   margin-bottom: calc(32 * var(--u));
-  background: var(--color-bg);
 }
 
 .runway {
-  /* How much scrolling one full rotation takes. */
-  --runway: 220vh;
+  /* How much scrolling the whole sequence takes: the close-up pulling back, the
+     phones assembling, then the turn through the app's screens. Longer
+     means more scroll per frame, which is what makes the scrub read smoothly. */
+  --runway: 1400vh;
   height: calc(var(--runway) + 100vh);
 }
 
 .pin {
+  --p: 0;
+  /* Frame shown, kept current by ScrollFrames. Declared here so the captions
+     have a value before the script runs: left undefined, their opacity maths
+     is invalid and every caption shows at once, stacked. */
+  --f: 0;
+  /* The section pulls back and dissolves at the end, handing over to the
+     testimonials rather than simply scrolling away. */
+  --out-raw: clamp(0, (var(--p) - 0.9) / 0.1, 1);
+  --out: calc(var(--out-raw) * var(--out-raw) * (3 - 2 * var(--out-raw)));
+  /* Width of the frame, which is 10:9. The phones span 5%–95% of its height,
+     so at 87vh wide they stand about 70% of the viewport tall. Capped by width
+     too, to leave the left of the stage for the feature copy. */
+  --art: min(calc(940 * var(--u)), 87vh, 58vw);
+  --stage: min(100vw, 1440px);
+  /* Gap kept between the phones and the stage's right edge once they move. */
+  --edge: max(24px, calc(56 * var(--u)));
+  /* The phones sit on the right throughout, beside the copy. */
+  --slide: 1;
+  /* They fade up at normal size as the section arrives, before the clip
+     starts playing (playFrom in content.ts). */
+  --in-raw: clamp(0, var(--p) / 0.02, 1);
+  --in: calc(var(--in-raw) * var(--in-raw) * (3 - 2 * var(--in-raw)));
+  --shift: calc((var(--stage) - var(--art)) / 2 - var(--edge));
   position: sticky;
   top: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
+/* At normal size on the right from the start; rises a touch as it fades up. */
 .canvas {
+  position: relative;
   display: block;
-  width: calc(788 * var(--u));
-  max-height: 90vh;
-  aspect-ratio: 1;
-  object-fit: contain;
+  width: var(--art);
+  /* Matches the extracted frames (10:9); a wrong ratio squashes the render. */
+  aspect-ratio: 10 / 9;
+  transform: translateX(calc(var(--slide) * var(--shift))) translateY(calc((1 - var(--in)) * 40px))
+    scale(calc(1 - 0.32 * var(--out)));
+  opacity: calc(var(--in) * (1 - var(--out)));
+  will-change: transform, opacity;
+}
+
+/* Feature copy for the screen on show, in the space the phones leave on the
+   left once they have slid right. FeatureCaptions marks one caption "in" and
+   the rest "before"/"after" it; the swap is a timed transition. */
+.captions {
+  position: absolute;
+  top: 50%;
+  left: max(24px, calc(80 * var(--u)));
+  width: min(520px, calc(var(--stage) - var(--art) - var(--edge) - max(24px, calc(80 * var(--u))) - 64px));
+  height: 0;
+  opacity: calc(1 - var(--out));
+}
+
+.caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Each piece (counter, title, text) moves on its own. Out: quick, together,
+   lifting the way the scroll is going. In: rising from the other side, a
+   beat apart, with a slight blur clearing so it reads as coming into focus. */
+.piece {
+  --shift: 28px;
+  opacity: 0;
+  filter: blur(6px);
+  transition:
+    opacity 280ms ease,
+    transform 380ms cubic-bezier(0.4, 0, 0.6, 1),
+    filter 280ms ease;
+}
+.caption[data-state="before"] .piece {
+  transform: translateY(calc(var(--shift) * -1));
+}
+.caption[data-state="after"] .piece {
+  transform: translateY(var(--shift));
+}
+.caption[data-state="in"] .piece {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+  transition:
+    opacity 600ms ease,
+    transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 600ms ease;
+}
+/* Arrivals wait for the outgoing copy to clear, then stagger. */
+.caption[data-state="in"] .piece:nth-child(1) {
+  transition-delay: 160ms;
+}
+.caption[data-state="in"] .piece:nth-child(2) {
+  transition-delay: 230ms;
+}
+.caption[data-state="in"] .piece:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+/* Which feature of how many: "01 —— 05". */
+.count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 calc(22 * var(--u));
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.4);
+}
+.countNow {
+  color: #fff;
+}
+.countRule {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(12px, calc(14 * var(--u)), 14px);
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6ff0b4;
+  text-wrap: balance;
+}
+
+.text {
+  /* ~20 characters a line keeps it a short, even stack beside the phones;
+     balance stops a lone last word ("in.") hanging on its own line. */
+  max-width: 20ch;
+  margin: calc(12 * var(--u)) 0 0;
+  font-weight: 500;
+  font-size: clamp(24px, calc(36 * var(--u)), 36px);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-wrap: balance;
 }
 
 @media (max-width: 1023px) {
   .section {
     margin-bottom: 0;
   }
+  /* Still a long scroll: the whole clip, five screens and their copy, has to
+     fit in it. */
   .runway {
-    --runway: 150vh;
+    --runway: 700vh;
+  }
+  .text {
+    font-size: 24px;
+  }
+}
+
+/* Phone screens: no room beside the phones, so they stay centred and the copy
+   goes underneath them. */
+@media (max-width: 767px) {
+  .pin {
+    /* Wider than the screen: the phones fill the middle 60% of the frame, so
+       this keeps them large and lets only the empty sides run off. */
+    --art: min(165vw, 68vh);
+    --slide: 0;
+    overflow: hidden;
   }
   .canvas {
-    width: min(100%, 520px);
-    padding: 0 16px;
-    box-sizing: border-box;
+    transform: none;
+  }
+  .captions {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(calc(100% - 32px), 560px);
+    height: 140px;
+    margin-top: -8px;
+  }
+  .caption {
+    text-align: center;
+    transform: none;
+  }
+  .count {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .text {
+    max-width: 22ch;
+    margin-inline: auto;
+    font-size: 22px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .piece,
+  .caption[data-state="in"] .piece {
+    filter: none;
+    transform: none;
+    transition: opacity 200ms ease;
+    transition-delay: 0ms;
+  }
   .section {
     padding: calc(49 * var(--u)) 0;
   }

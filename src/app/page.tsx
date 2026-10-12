@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import DemoVideo from "@/components/DemoVideo";
 import Statement from "@/components/Statement";
 import MultiDevice from "@/components/MultiDevice";
 import Testimonials from "@/components/Testimonials";
@@ -11,6 +12,7 @@ export default function Home() {
       <div className="frame">
         <main>
           <Hero />
+          <DemoVideo />
           <Statement />
           <MultiDevice />
           <Testimonials />

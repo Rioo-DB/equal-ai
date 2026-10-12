@@ -7,6 +7,9 @@ import s from "./Footer.module.css";
 export default function Footer() {
   return (
     <footer className={s.footer}>
+      {/* Green bloom rising from the bottom of the page, behind the wordmark. */}
+      <div className={s.glow} aria-hidden="true" />
+
       <div className={s.top}>
         <div className={s.lead}>
           <p className={s.tagline}>
@@ -14,10 +17,7 @@ export default function Footer() {
             <br />
             <span className={s.accent}>{footer.tagline.line2}</span>
           </p>
-          <Link href={footer.cta.href} className={s.cta}>
-            <span className={s.ctaLabel}>{footer.cta.label}</span>
-            <Image src="/assets/arrow.svg" alt="" width={22} height={14} className={s.arrow} />
-          </Link>
+          <p className={s.sub}>{footer.sub}</p>
         </div>
 
         {footer.columns.map((column) => (
@@ -48,6 +48,11 @@ export default function Footer() {
       </div>
 
       <Image src="/assets/divider-h.svg" alt="" width={1299} height={1} className={s.divider} />
+
+      <div className={s.legal}>
+        <p>{footer.legal.copyright}</p>
+        <p>{footer.legal.motto}</p>
+      </div>
 
       <div className={s.wordmark}>
         <Image

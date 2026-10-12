@@ -1,0 +1,222 @@
+/* Pulled up two viewports under the headline section, so the demo is already
+   pinned and fading up behind the headline as it lifts away. */
+.section {
+  margin-top: -200vh;
+}
+
+/* Only the run up to the watch screen is scrolled (~145 frames). */
+.runway {
+  height: 420vh;
+}
+
+.pin {
+  --p: 0;
+  --in-raw: clamp(0, var(--p) / 0.06, 1);
+  --out-raw: clamp(0, (var(--p) - 0.94) / 0.06, 1);
+  --vis: calc(var(--in-raw) * var(--in-raw) * (3 - 2 * var(--in-raw)) * (1 - var(--out-raw)));
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  opacity: var(--vis);
+}
+
+/* The video frame, sized to cover the stage (16:9) and centred. The canvas
+   fills it; the gate's hit areas use the same box so they sit on the buttons
+   in the picture. */
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100vw, calc(100vh * 16 / 9));
+  height: max(100vh, calc(100vw * 9 / 16));
+  transform: translate(-50%, -50%);
+}
+
+/* ---- Gate ---------------------------------------------------------------- */
+
+.gate {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* The rest of the demo, as a video with sound. Laid over the frame box the
+   canvas fills, and only shown once it is playing (it starts on the very frame
+   the canvas is holding, so the swap does not show). */
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+.gate[data-state="playing"] .video,
+.gate[data-state="done"] .video {
+  opacity: 1;
+}
+
+/* The phone on the "Click here to watch" screen: one big tap target, with a
+   soft pulse round it while it waits. */
+.watch {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  border-radius: 9% / 4.5%;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: none;
+}
+/* Clickable whenever it is not already playing (play() itself checks the
+   watch screen is up); pulses while the scroll waits on it. */
+.gate:not([data-state="playing"]) .watch {
+  pointer-events: auto;
+}
+.gate[data-state="waiting"] .watch {
+  animation: pulse 2s ease-out infinite;
+}
+.watch:hover {
+  opacity: 1;
+}
+.watch:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 6px;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(200, 255, 120, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 28px rgba(200, 255, 120, 0);
+  }
+}
+
+/* Bottom bar: the prompt while waiting; mute and skip while playing. */
+/* In the bottom-right corner, clear of the phone, so the whole phone stays
+   one tap target. */
+.bar {
+  position: absolute;
+  right: max(24px, 3vw);
+  bottom: max(28px, 5vh);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+.barText,
+.barButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 200px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #fff;
+  animation: barIn 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Just a label over the phone: taps go through it to the phone. */
+.barText {
+  pointer-events: none;
+}
+.barButton {
+  pointer-events: auto;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+.barButton:hover {
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.barButton svg {
+  width: 20px;
+  height: 20px;
+}
+@keyframes barIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* The glow behind the frame: only on portrait phones, below. */
+.ambient {
+  display: none;
+}
+
+/* Portrait screens: "cover" would crop the clip to its middle third and cut
+   its captions and the call bar off at the sides. Instead it is shown wide
+   enough to keep them (they span the middle ~65%), centred, with the black of
+   the stage above and below. */
+@media (orientation: portrait) and (max-width: 1023px) {
+  /* As the clip reaches the lone phone ("Click here to watch", from about
+     frame 100 of 144, as the call phone pulls back) it zooms in on it, 2.5x, so the phone — and the video
+     with sound that plays in it — fills the screen. --f is the frame shown,
+     written by ScrollFrames; it stays on the last frame while the video plays,
+     so the zoom holds. Both the canvas and the video overlay share this box,
+     so they stay aligned. */
+  .pin {
+    --zoom-raw: clamp(0, (var(--f, 0) - 100) / 24, 1);
+    --zoom: calc(var(--zoom-raw) * var(--zoom-raw) * (3 - 2 * var(--zoom-raw)));
+  }
+  .frame {
+    width: 150vw;
+    height: calc(150vw * 9 / 16);
+    transform: translate(-50%, -50%) scale(calc(1 + 1.5 * var(--zoom)));
+    /* The clip's light streaks would otherwise stop in a hard line at the top
+       and bottom of the picture; fade them into the black of the stage. */
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+    mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+  }
+  /* The frame's own colours, stretched over the whole screen and blurred into
+     a glow, so the band of picture sits in light from it rather than in a
+     black screen. Goes as the zoom fills the screen with the phone. */
+  .ambient {
+    display: block;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    filter: blur(32px) saturate(1.25);
+    opacity: calc(0.85 * (1 - 0.6 * var(--zoom)));
+    pointer-events: none;
+  }
+  /* Bottom of the screen, centred, below the zoomed phone. */
+  .bar {
+    right: auto;
+    left: 50%;
+    bottom: max(20px, 3svh);
+    transform: translateX(-50%);
+  }
+  .barText,
+  .barButton {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+}
+
+
+/* Nothing drives the scroll sequence: show the call frame, ungated. */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    margin-top: 0;
+  }
+  .runway {
+    height: auto;
+  }
+  .pin {
+    position: relative;
+    opacity: 1;
+  }
+}

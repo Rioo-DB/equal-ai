@@ -1,42 +1,77 @@
-/*
- * Statement. The block pins while its runway scrolls past; SpotlightLines
- * lights each line in turn (grey -> white, last word -> green) so the section
- * holds until all three have been read, then releases and the page scrolls on.
- */
-
+/* Pulled up over the demo's last viewport, so the copy can start arriving as
+   the demo finishes fading, with no stretch of empty black in between. No
+   background, for the same reason: the demo shows through until it has gone. */
 .section {
-  background: var(--color-bg);
+  position: relative;
+  z-index: 1;
+  margin-top: -100vh;
+  /* It lies over the demo's last viewport, invisible until its copy comes up:
+     without this it swallowed clicks meant for the demo's Mute and Skip. It
+     has nothing to click itself. */
+  pointer-events: none;
 }
 
-/* One viewport of hold per line, plus the pinned viewport itself. */
+/*
+ * Phases, off HeroPin's --p. The phones section is pulled up one viewport
+ * under this one, so with a 520vh runway (420vh of pin) it starts showing at
+ * 320/420 = 0.76: the copy has to have gone by then.
+ *
+ *   in   0.03 -> 0.13   zooms up from small
+ *   lit  0.13 -> 0.60   the three lines light in turn
+ *   out  0.60 -> 0.70   pushes in and fades
+ */
 .runway {
-  height: 400vh;
+  height: 520vh;
 }
 
 .pin {
+  --p: 0;
+  --text-in: clamp(0, (var(--p) - 0.03) / 0.1, 1);
+  --lit-p: clamp(0, (var(--p) - 0.13) / 0.47, 1);
+  --text-out: clamp(0, (var(--p) - 0.6) / 0.1, 1);
+  --I: calc(var(--text-in) * var(--text-in) * (3 - 2 * var(--text-in)));
+  --O: calc(var(--text-out) * var(--text-out) * (3 - 2 * var(--text-out)));
   position: sticky;
   top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
-.text {
-  width: calc(922 * var(--u));
+.lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(calc(1100 * var(--u)), 128vh);
   margin: 0;
+  /* Grows on the way out rather than shrinking: the camera pushes through the
+     copy and it dissolves, instead of it receding away from the reader. */
+  transform: translate(-50%, -50%) scale(calc((0.78 + 0.22 * var(--I)) * (1 + 0.42 * var(--O))));
+  opacity: calc(var(--I) * (1 - var(--O)));
   text-align: center;
   font-weight: 500;
-  font-size: clamp(36px, calc(64 * var(--u)), 64px);
-  /* Figma 93.22% is relative to Manrope's natural line height (1.37): 0.9322 * 1.37 */
+  font-size: min(clamp(36px, calc(72 * var(--u)), 72px), 8.6vh);
+  /* Figma 93.22% is relative to Manrope's natural line height (1.37) */
   line-height: 1.277;
   color: var(--color-muted);
+  will-change: transform, opacity;
 }
 
-/* --lit (0..1) is driven per line by SpotlightLines from the scroll position. */
+/* Each line peaks as --lit-p passes its slot's centre and fades over one
+   slot's width either side, so the highlight travels 1 -> 2 -> 3. */
 .line {
-  --lit: 0;
+  --dist: max(calc(var(--lit-p) - var(--at)), calc(var(--at) - var(--lit-p)));
+  --raw: clamp(0, calc(1 - var(--dist) * 3), 1);
+  --lit: calc(var(--raw) * var(--raw) * (3 - 2 * var(--raw)));
   display: block;
+}
+.line:nth-child(1) {
+  --at: 0.1667;
+}
+.line:nth-child(2) {
+  --at: 0.5;
+}
+.line:nth-child(3) {
+  --at: 0.8333;
 }
 
 .white {
@@ -48,25 +83,40 @@
 }
 
 @media (max-width: 1023px) {
-  .runway {
-    height: 300vh;
+  /* The phones arrive earlier relative to this runway on a phone, so the
+     copy has to be gone sooner, and it grows less on the way out so it never
+     spills off the sides of a narrow screen. */
+  .pin {
+    --text-out: clamp(0, (var(--p) - 0.53) / 0.06, 1);
   }
-  .text {
-    width: 100%;
-    padding: 0 16px;
-    box-sizing: border-box;
-    font-size: 36px;
-    line-height: 1.15;
+  .lines {
+    width: calc(100% - 24px);
+    font-size: clamp(28px, 7.6vw, 40px);
+    line-height: 1.22;
+    transform: translate(-50%, -50%) scale(calc((0.86 + 0.14 * var(--I)) * (1 + 0.12 * var(--O))));
   }
 }
 
+/* Nothing drives --p: show the copy as it finally reads, all lit. */
 @media (prefers-reduced-motion: reduce) {
+  .section {
+    margin-top: 0;
+  }
   .runway {
     height: auto;
   }
   .pin {
     position: static;
     height: auto;
-    padding: 96px 0;
+    padding: 96px 16px;
+  }
+  .lines {
+    position: static;
+    width: 100%;
+    transform: none;
+    opacity: 1;
+  }
+  .line {
+    --lit: 1;
   }
 }

@@ -42,11 +42,12 @@ export default function HeroPin({ children, className, pinClassName }: Props) {
       pin.style.setProperty("--l1shift", `${((w2 - w1) / 2).toFixed(1)}px`);
     };
 
+    const write = () => pin.style.setProperty("--p", p.toFixed(4));
     const frame = () => {
       raf = 0;
       const next = p < 0 ? target : p + (target - p) * EASE;
       p = Math.abs(target - next) < 0.0004 ? target : next;
-      pin.style.setProperty("--p", p.toFixed(4));
+      write();
       if (p !== target && visible) raf = requestAnimationFrame(frame);
     };
     const start = () => {
@@ -56,7 +57,15 @@ export default function HeroPin({ children, className, pinClassName }: Props) {
       const rect = runway.getBoundingClientRect();
       const span = rect.height - window.innerHeight;
       target = span > 0 ? Math.min(Math.max(-rect.top / span, 0), 1) : 0;
-      start();
+      // Animation frames are paused while the page is hidden, so easing would
+      // stall part-way and leave the stage on a stale frame. Jump straight to
+      // the answer instead, and it is already right when the tab comes back.
+      if (document.hidden) {
+        p = target;
+        write();
+      } else {
+        start();
+      }
     };
     const onResize = () => {
       measure();

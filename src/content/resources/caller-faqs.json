@@ -1,0 +1,91 @@
+{
+  "title": "Received a message from Equal?",
+  "lede": "Here's why you heard from us and exactly what happens to your information.",
+  "items": [
+    {
+      "id": "what-is-equal",
+      "question": "What is Equal, and why did it message me?",
+      "answer": "<p>You called someone who uses Equal to handle calls on their behalf. After you spoke to their Equal assistant, it sent you a confirmation so you know your message reached them.</p>"
+    },
+    {
+      "id": "why-do-you-have-my-number",
+      "question": "Why do you have my number?",
+      "answer": "<p>From the call you made. Nowhere else. Equal only receives your number because you called someone who uses Equal.</p>"
+    },
+    {
+      "id": "genuine-not-spam",
+      "question": "How do I know this message is genuine and not spam?",
+      "answer": "<p>A real message clearly identifies Equal and tells you who it is speaking on behalf of. Equal will <strong>never</strong> ask you for an OTP, password, money or payment details.</p>"
+    },
+    {
+      "id": "what-happens-to-my-message",
+      "question": "What does Equal AI do with my phone number and my message?",
+      "answer": "<p>One call. One purpose. Your number and message are used to help the person you called understand why you reached out and to send you a confirmation. Not for marketing. Not for anything else.</p>"
+    },
+    {
+      "id": "is-my-call-recorded",
+      "question": "Does Equal AI store or record anything about my call?",
+      "answer": "<p>What you say to Equal can be recorded so the person you called can hear why you called, in your own words. If they take over or pick up directly, that part is only recorded if they've chosen to record their calls.</p>"
+    },
+    {
+      "id": "who-can-access-my-call",
+      "question": "Who can access my call or the details I shared?",
+      "answer": "<p>The person you were trying to reach. They can access the details of your interaction with their Equal assistant. Equal doesn't sell, share or disclose them to anyone else, except where required by law or with your consent.</p>"
+    },
+    {
+      "id": "advertising-third-parties",
+      "question": "Is my information used for advertising or shared with third parties?",
+      "answer": "<p>No. Your information is used for the call and the confirmation, nothing else. We don't use it to advertise to you or share it with third parties.</p>"
+    },
+    {
+      "id": "is-a-profile-being-built",
+      "question": "Is a profile being built about me?",
+      "answer": "<p>No profile. No enrichment. No cross-referencing. Equal doesn't turn your phone number into a profile or add it to an advertising or contact database.</p>"
+    },
+    {
+      "id": "how-long-is-my-number-stored",
+      "question": "How long is my phone number stored?",
+      "answer": "<p>Only for as long as it's needed to send confirmations and maintain a record of the call.</p>"
+    },
+    {
+      "id": "whatsapp-profile",
+      "question": "Can Equal AI see my WhatsApp profile, photo or status?",
+      "answer": "<p>No. Equal has the number you called from — not access to your WhatsApp account.</p>"
+    },
+    {
+      "id": "if-i-opt-out",
+      "question": "What happens to my data if I opt out?",
+      "answer": "<p>We remember one thing: don't message this number again. Opting out stops future confirmations. Your number is kept only to remember that choice.</p>"
+    },
+    {
+      "id": "copy-of-my-recording",
+      "question": "Can I get a copy of my own call recording?",
+      "answer": "<p>The recording and summary belong to the person you called. If you'd like access, you'll need to ask them directly.</p>"
+    },
+    {
+      "id": "can-they-share-it",
+      "question": "Can the person I called share my call recording with others?",
+      "answer": "<p>Equal won't share your call with anyone. What the person you called chooses to do with their own call record is up to them.</p>"
+    },
+    {
+      "id": "does-it-cost-me",
+      "question": "Does receiving these messages cost me anything?",
+      "answer": "<p>Nope. Equal doesn't charge you for receiving a confirmation.</p>"
+    },
+    {
+      "id": "how-do-i-stop",
+      "question": "How do I stop receiving these messages?",
+      "answer": "<p>Right from the WhatsApp message. You don't need an Equal account or the Equal app. Just use the opt-out option in the message.</p>"
+    },
+    {
+      "id": "stop-for-everyone",
+      "question": "If I stop them for one person, does it stop them for everyone?",
+      "answer": "<p>Yes. One choice covers all of Equal. Once you opt out, you won't receive these kinds of messages from anyone using Equal.</p>"
+    },
+    {
+      "id": "privacy-contact",
+      "question": "Who do I contact if I have a privacy question or concern?",
+      "answer": "<p>Talk to us. We're happy to answer questions about how your information is handled.</p><p><strong>Phone:</strong> <a href=\"tel:+918019906600\">+91 80199 06600</a><br><strong>Email:</strong> <a href=\"mailto:hey@equal.in\">hey@equal.in</a></p>"
+    }
+  ]
+}
