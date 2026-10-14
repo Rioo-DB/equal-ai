@@ -2,7 +2,8 @@ import Hero from "@/components/Hero";
 import DemoVideo from "@/components/DemoVideo";
 import Statement from "@/components/Statement";
 import MultiDevice from "@/components/MultiDevice";
-import Testimonials from "@/components/Testimonials";
+// Hidden until the testimonial videos are ready; re-enable both lines.
+// import Testimonials from "@/components/Testimonials";
 import Stats from "@/components/Stats";
 import Footer from "@/components/Footer";
 
@@ -15,7 +16,7 @@ export default function Home() {
           <DemoVideo />
           <Statement />
           <MultiDevice />
-          <Testimonials />
+          {/* <Testimonials /> */}
           <Stats />
         </main>
         <Footer />
